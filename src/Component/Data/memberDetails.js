@@ -12,8 +12,4 @@ export const club_member_details = [
     linkedln_link: `https://www.linkedin.com/in/debarshi-mondal-developer/`,
     github_link: `https://github.com/LENO-DEV`
   },
-  {
-    id: 2,
-    firstname: 'Suman',
-  }
 ];
