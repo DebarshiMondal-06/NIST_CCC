@@ -33,5 +33,16 @@ export const club_member_details = [
     profile_img: 'https://avatars.githubusercontent.com/u/66204882?v=4',
     linkedln_link: `https://www.linkedin.com/in/sutari-sunil-reddy-b80796196/`,
     github_link: `https://github.com/Sunilreddy0`
-  }
+  },
+  {
+    id: 4,
+    firstname: 'Vikas',
+     fullname: 'Vikas Kumar',
+    description: `I`,
+    desgination: 'Web Developer',
+    member_type: 'Core Member',
+    profile_img: 'https://avatars.githubusercontent.com/u/93202107?v=4',
+    linkedln_link: `https://www.linkedin.com/in/vikas-kumar-3496501aa/`,
+    github_link: `https://github.com/Vikas1211K`
+  },
 ];
