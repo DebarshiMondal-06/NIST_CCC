@@ -86,4 +86,15 @@ export const club_member_details = [
     linkedln_link: `www.linkedin.com/in/nishan-tripathy-67a935195`,
     github_link: `https://github.com/nishankumartripathy`
   }
+  {
+    id: 8,
+    firstname: 'Sital',
+    fullname: 'Sital Khadanga',
+    description: `interest for machine learning and data analytics.`,
+    desgination: 'Software developer',
+    member_type: 'Core Member',
+    profile_img: 'https://avatars.githubusercontent.com/u/61120029?v=4',
+    linkedln_link: `https://www.linkedin.com/in/sital-khadanga-7562271b1/`,
+    github_link: `https://github.com/sitalkhadanga`
+  }
 ];
