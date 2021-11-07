@@ -19,7 +19,7 @@ const Home = () => {
       <p><a href="https://www.linkedin.com/company/nist-cloud-computing-club" target="_blank" rel="noreferrer">
         <i className="fab fa-linkedin text-primary"></i>
       </a></p>
-      <p><a href="/" rel="noreferrer">
+      <p><a href="https://www.instagram.com/cloud_computing_club.nist/" target="_blank" rel="noreferrer">
         <i className="fab fa-instagram"></i>
       </a></p>
       <p><a href="https://www.facebook.com/ccc.nist/" target="_blank" rel="noreferrer">

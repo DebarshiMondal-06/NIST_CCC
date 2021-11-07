@@ -14,6 +14,7 @@ import Contact from './Pages/Contact';
 import Footer from './Component/Footer/Footer';
 import MemberBrief from './Pages/Members/MemberBrief';
 import EventPage from './Pages/Events/EventPage/EventPage';
+import OneEvent from './Pages/Events/EventPage/OneEvent';
 
 
 
@@ -32,6 +33,7 @@ const App = () => {
         <Route exact path="/events-all" component={EventPage} />
         <Route path="/events-upcoming" component={EventPage} />
         <Route path="/events-previous" component={EventPage} />
+        <Route path="/events-details" component={OneEvent} />
         <Route exact path="/members" component={Members} />
         <Route path="/members/brief" component={MemberBrief} />
         <Route path="/tech" component={Tech} />

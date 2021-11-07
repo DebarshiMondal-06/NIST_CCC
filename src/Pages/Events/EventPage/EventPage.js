@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 import '../events.css';
-import EventDetails from './EventDetails';
+import AllEventDetails from './AllEventDetails';
 
 const EventPage = () => {
   document.title = 'NIST CCC | Events';
@@ -20,7 +20,7 @@ const EventPage = () => {
         <p>Upcoming</p>
       </NavLink>
     </article>
-    <EventDetails />
+    <AllEventDetails />
   </section>
 }
 

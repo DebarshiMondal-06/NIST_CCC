@@ -13,8 +13,8 @@ const Events = () => {
         </article>
         <h1>Serverless in Action</h1>
         <p className="date">Wedensday 25, 2021</p>
-        <p className="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam velit
-          enim quas nisi illo omnis accusamus adipisci ex quia ad.
+        <p className="desc">
+            Microservices architecture is a distributed design approach intended to overcome the limitations of traditional monolithic architectures.
         </p>
         <article>
           <Link to="/events-upcoming">

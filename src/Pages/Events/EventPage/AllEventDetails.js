@@ -1,6 +1,8 @@
-import React, {  useState } from 'react'
+import React, { useState } from 'react'
 import { useLocation } from 'react-router'
+import { Link } from 'react-router-dom';
 import { eventDetails } from '../../../Component/Data/eventDetails';
+import eventlogo from '../../../event-card-image.png';
 
 
 const EventDetails = () => {
@@ -25,13 +27,13 @@ const EventDetails = () => {
   return <section className="event--details--section">
     {
       filterData && filterData.length > 0
-        ? filterData.map((item,i) => {
+        ? filterData.map((item, i) => {
           const { event_type, name, describe, date } = item;
           return <div key={i} className="event--card card shadow-lg">
             <p className="badge bg-warning"><i className="fas fa-atom"></i> {event_type}</p>
             <main className="p-0">
               <img width="250" className="p-0" height="180"
-                src="https://cdn.datafloq.com/cache/blog_pictures/878x531/7-reasons-serverless-computing-revolution-cloud.jpg" alt=""
+                src={eventlogo} alt=""
               />
             </main>
             <main className="event--text">
@@ -39,10 +41,12 @@ const EventDetails = () => {
               <p>
                 {describe}
               </p>
-              <h6>Date: {date} </h6>
-              <button className="btn btn-primary">
-                Check Details <i className="fas fa-long-arrow-alt-right p-1"></i>
-              </button>
+              <h6>-Building Cloud Native Application with AWS </h6>
+              <Link to="/events-details">
+                <button className="btn btn-primary">
+                  Check Details <i className="fas fa-long-arrow-alt-right p-1"></i>
+                </button>
+              </Link>
             </main>
           </div>
         })
