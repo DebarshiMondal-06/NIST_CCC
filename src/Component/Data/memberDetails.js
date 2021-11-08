@@ -44,7 +44,7 @@ export const club_member_details = [
     description: `Passionate towards data science, devops and cloud computing. Worked on many clouds like AWS, Azure, GCP, OpenStack and automation technologies like devOps.`,
     desgination: 'Machine Learning, DevOps & Cloud Computing',
     member_type: 'Core Member',
-    profile_img: '',
+    profile_img: 'https://avatars.githubusercontent.com/u/58588306?v=4',
     linkedln_link: `https://www.linkedin.com/in/sriramadasu-prasanth-kumar-917703184/`,
     github_link: `https://github.com/Sriramadasu`,
     year: '2018'
