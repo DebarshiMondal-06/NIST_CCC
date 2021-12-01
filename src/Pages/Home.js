@@ -58,7 +58,7 @@ const Home = () => {
 
 
     <section className="events--section">
-      <h2>Upcoming Events.</h2>
+      <h2>Events.</h2>
       <Events />
     </section>
 

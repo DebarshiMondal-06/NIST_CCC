@@ -9,6 +9,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import ReactConfetti from 'react-confetti/dist/react-confetti';
 import FeedBack from './FeedBack';
+import Winners from './AfterEvent/Winners';
 
 
 
@@ -159,13 +160,10 @@ const OneEvent = () => {
     {
       register ? <ModalRegister setRegister={setRegister} /> : null
     }
-    {
-      getUserItem ? <ViewTicket getItem={getUserItem} /> : null
-    }
-    <br /><br />
-    {
-      getUserItem ? <FeedBack getItem={getUserItem} /> : null
-    }
+    <div>
+      {/* <Winners /> */}
+    </div>
+    <br />
   </section>
 }
 

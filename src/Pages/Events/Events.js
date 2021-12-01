@@ -17,7 +17,7 @@ const Events = () => {
             Microservices architecture is a distributed design approach intended to overcome the limitations of traditional monolithic architectures.
         </p>
         <article>
-          <Link to="/events-upcoming">
+          <Link to="/events-previous">
             <button className="btn mt-2">
               Checkout...
             </button>
