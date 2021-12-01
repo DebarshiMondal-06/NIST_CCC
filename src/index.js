@@ -9,7 +9,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import { AdminContext } from './Admin/AdminContext';
 
 
-
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
