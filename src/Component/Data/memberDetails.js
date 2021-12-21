@@ -231,4 +231,16 @@ export const club_member_details = [
     github_link: `https://github.com/ritikkumar04`,
     year: '2018'
   },
+  {
+    id: 12,
+    firstname: 'Sambit',
+    fullname: 'Sambit Sargam Ekalabya',
+    description: `interest in Blockchain development and Web development.`,
+    desgination: 'Web developer',
+    member_type: 'Core Member',
+    profile_img: 'https://avatars.githubusercontent.com/u/70655824?v=4',
+    linkedln_link: `https://www.linkedin.com/in/sambitsargam/`,
+    github_link: `https://github.com/sambitsargam`,
+    year: '2020'
+  },
 ];
