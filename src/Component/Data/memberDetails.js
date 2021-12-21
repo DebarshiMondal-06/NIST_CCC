@@ -232,15 +232,63 @@ export const club_member_details = [
     year: '2018'
   },
   {
+    id: 8,
+    firstname: 'Asish',
+    fullname: 'Asish Panigrahi',
+    description: `interest for web development and Cloud Computing.`,
+    desgination: 'Web Developer',
+    member_type: 'Core Member',
+    profile_img: 'https://avatars.githubusercontent.com/u/95563674?v=4',
+    linkedln_link: `https://www.linkedin.com/in/asish-panigrahi-a43439175`,
+    github_link: `https://github.com/Tugi01`,
+    year: '2020'
+  },
+  {
+    id: 8,
+    firstname: 'Anikesh',
+    fullname: 'Anikesh Aman',
+    description: `interest for  Cloud Computing.`,
+    desgination: '',
+    member_type: 'Core Member',
+    profile_img: 'https://avatars.githubusercontent.com/u/96464888?v=4',
+    linkedln_link: `https://www.linkedin.com/in/anikesh-aman-527404210`,
+    github_link: `https://github.com/8512ani`,
+    year: '2020'
+  },
+  {
     id: 12,
     firstname: 'Sambit',
     fullname: 'Sambit Sargam Ekalabya',
-    description: `interest in Blockchain development and Web development.`,
-    desgination: 'Web developer',
+    description: `interest in Blockchain development, Web development and UI/UX designing.`,
+    desgination: 'Web developer & Graphics Designer',
     member_type: 'Core Member',
     profile_img: 'https://avatars.githubusercontent.com/u/70655824?v=4',
     linkedln_link: `https://www.linkedin.com/in/sambitsargam/`,
     github_link: `https://github.com/sambitsargam`,
+    year: '2020'
+  },
+  {
+    id: 8,
+    firstname: 'Charan',
+    fullname: 'V.Charanraju',
+    description: `interest for android development and Cloud Computing.`,
+    desgination: 'Android Developer',
+    member_type: 'Core Member',
+    profile_img: 'https://avatars.githubusercontent.com/u/96484862?v=4',
+    linkedln_link: `https://www.linkedin.com/in/vysyaraju-raju-731151227/`,
+    github_link: `https://github.com/VCharanRaju12`,
+    year: '2020'
+  },
+  {
+    id: 11,
+    firstname: 'Vikash',
+    fullname: 'Vikash Kumar',
+    description: `interest in coding and web development.`,
+    desgination: '',
+    member_type: 'Core Member',
+    profile_img: 'https://avatars.githubusercontent.com/u/72180033?v=https://avatars.githubusercontent.com/u/72180033?v=4',
+    linkedln_link: `https://www.linkedin.com/in/vikash-kumar-b00b35212`,
+    github_link: `https://github.com/vikashkumar8507`,
     year: '2020'
   },
 ];
