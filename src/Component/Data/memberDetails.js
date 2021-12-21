@@ -231,4 +231,17 @@ export const club_member_details = [
     github_link: `https://github.com/ritikkumar04`,
     year: '2018'
   },
+  {
+    id: 8,
+    firstname: 'Anikesh',
+    fullname: 'Anikesh Aman',
+    description: `interest for  Cloud Computing.`,
+    desgination: '',
+    member_type: 'Core Member',
+    profile_img: 'https://avatars.githubusercontent.com/u/96464888?v=4',
+    linkedln_link: `https://www.linkedin.com/in/anikesh-aman-527404210`,
+    github_link: `https://github.com/8512ani`,
+    year: '2020'
+  },
+  
 ];
