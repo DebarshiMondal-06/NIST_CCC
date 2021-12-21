@@ -231,4 +231,16 @@ export const club_member_details = [
     github_link: `https://github.com/ritikkumar04`,
     year: '2018'
   },
+  {
+    id: 11,
+    firstname: 'Vikash',
+    fullname: 'Vikash Kumar',
+    description: `interest in coding and web development.`,
+    desgination: '',
+    member_type: 'Core Member',
+    profile_img: 'https://avatars.githubusercontent.com/u/72180033?v=https://avatars.githubusercontent.com/u/72180033?v=4',
+    linkedln_link: `https://www.linkedin.com/in/vikash-kumar-b00b35212`,
+    github_link: `https://github.com/vikashkumar8507`,
+    year: '2020'
+  },
 ];
