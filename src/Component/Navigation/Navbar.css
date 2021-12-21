@@ -1,0 +1,61 @@
+.navbar--section{
+  width: 100%!important;
+  padding: 0%;
+  margin: 0%;
+  position: fixed;
+  z-index: 2;
+  top: 0%;
+  height: 100px;
+}
+.backColor{
+  background-color: white!important;
+  opacity: 0.9;
+}
+.navbar--brand{
+  margin-top: -5px;
+  padding: 0px 10px;
+}
+.navbar--brand img{
+  padding: 5px;
+}
+.navbar--section .navbar--left{
+  display: flex;
+  gap: 1.5em;
+  color: #333;
+  justify-content: space-around;
+}
+.navbar--section .navbar--left .btn-contact{
+  margin-left: -40%!important;
+  border: 3px solid #0099ff;
+  font-size: 20px;
+  width: 150px;
+  height: 50px;
+  font-weight: bolder;
+  transition: 0.2s all ease-in-out;
+}
+.navbar--section .navbar--left .btn-contact:hover{
+  background-color: #170A59;
+  border: 1px solid #170A59;
+  color: white;
+}
+@media only screen and (max-width: 900px) {
+ .btn-contact {
+    display: none;
+  }
+  .navbar--section .navbar--left .fa-external-link-alt{
+      margin-top: -50%!important;
+  }
+  .navbar--brand img{
+    width: 80px!important;
+    height: 100px!important;
+  }
+}
+.navbar--section .navbar--left .fa-external-link-alt{
+  font-size: 35px;
+  transform: rotate(180deg);
+  color: #333;
+  text-shadow: 0px 4px 25px 4px #348AC7!important;
+}
+.navbar--section .navbar--left .btn:focus{
+  box-shadow: none!important;
+}

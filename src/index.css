@@ -1,0 +1,583 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
+body{
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+.socials{
+  display: flex;
+  position: fixed;
+  top: 40%;
+  left: 0%;
+  z-index: 3;
+  flex-direction: column;
+  background-color: #348AC7;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 10px 5px;
+}
+.socials p{
+  margin: 0%;
+  padding: 0px 5px;
+  font-size: 35px;
+  margin-bottom: 0%;
+}
+.socials p i{
+  color: #000!important;
+}
+.socials p:hover i{
+  color: powderblue!important;
+}
+@media only screen and (max-width: 900px) {
+  .socials p{
+    padding: 0px 2px!important;
+    font-size: 25px;
+  }
+}
+
+.img--home{
+  opacity: 0.2!important;
+  position: absolute;
+  top: 0%;
+  right: -12%;
+  bottom: 0%;
+}
+.opacity--reduce{
+  opacity: 0.3;
+  margin-bottom: 0%;
+}
+.home--section{
+  margin-top: 12rem;
+  position: relative;
+}
+
+.home--section .home--text{
+  text-align: center;
+}
+.home--section .home--text h1{
+  font-size: 100px;
+  letter-spacing: 2px;
+  margin-bottom: -20px;
+}
+.home--section .home--text p{
+  font-size: 70px;
+  letter-spacing: 1px;
+}
+.home--section .home--text p b{
+  background: #7474BF; 
+  background: linear-gradient(to right, #348AC7, #7474BF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: transparent;
+}
+.home--section .home--text h6{
+  letter-spacing: 1px;
+  font-size: 18px;
+}
+.home--section .btn--explore{
+  margin-top: 5%;
+  text-align: center;
+}
+.home--section .btn--explore button{
+  font-size: 25px;
+  width: 300px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  letter-spacing: 2px;
+  background: #7474BF; 
+  background: linear-gradient(to right, #348AC7, #7474BF);
+  color: aliceblue;
+  border: 1px solid white;
+}
+.home--section .btn--explore button:focus{
+  box-shadow: none;
+}
+@media only screen and (max-width: 900px) {
+  .home--section .home--text h1{
+    font-size: 80px!important;
+    margin-bottom: 0%;
+  }
+  .home--section .home--text p{
+    font-size: 50px!important;
+  }
+  .home--section .home--text h6{
+    padding: 10px;
+  }
+  .home--section .btn--explore button{
+    margin-top: 10%;
+    width: 250px;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 22px;
+  }
+  .img--home{
+    display: none;
+  }
+}
+
+
+/*
+||
+|| ********************** *********************** Technology Section ********************** ************************
+||
+*/
+
+.tech--explore--section{
+  margin-top: 6%;
+}
+.tech--explore--section .svgs{
+  display: flex;
+}
+
+.tech--explore--section .svg--2{
+  transform: rotate(180deg);
+  margin-top: -15px;
+}
+.tech--explore--section main{
+  margin-top: -10px;
+  background-color: #170A59;
+}
+.tech--explore--section main h2{
+  font-size: 45px;
+  font-weight: bold;
+  padding: 0px 50px;
+  letter-spacing: 1px;
+  margin-bottom: 5%;
+}
+.tech--drive--lists {
+  margin-top: 40px;
+  padding: 40px;
+  margin-bottom: 0%;
+}
+.tech--drive--lists .tect--drive-div{
+  display: flex;
+  flex-direction: row;
+  gap: 3em;
+  width: 100%;
+  margin-bottom: 4%;
+}
+.tech--drive--lists h1{
+  font-family: 'Roboto Slab', serif;
+  letter-spacing: 1px;
+}
+.tech--drive--lists p{
+  font-size: 20px;
+  font-family: 'Roboto Slab', serif;
+  letter-spacing: 2px;
+  padding: 10px;
+}
+.tech--drive--lists .text--color{
+  background: #7474BF; 
+  background: linear-gradient(to right, #348AC7, #7474BF); 
+  padding: 0px 10px;
+  border-radius: 10px;
+  letter-spacing: 5px;
+  font-size: 50px;
+}
+.tech--drive--lists .tech--drive-img{
+  border-radius: 20px;
+  width: 400px;
+  height: 350px;
+  margin-top: -50px;
+}
+@media only screen and (max-width: 990px) {
+  .tech--explore--section .svg--1{
+    display: flex;
+    height: 70px;
+  }
+  .tech--explore--section main h2{
+    margin-top: 40px;
+    margin-bottom: -40px;
+  }
+  .tech--explore--section{
+    text-align: center;
+    margin-top: 10%!important;
+  }
+  .tech--drive--lists .text--color{
+    font-size: 40px!important;
+  }
+  .tech--drive--lists .tect--drive-div{
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .tech--drive--lists .tech--drive-img{
+    display: none!important;
+    padding: 0%;
+    margin: 0%;
+  }
+}
+
+/*
+||
+|| ************************ ************************* Events Section ************************ **************************
+||
+*/
+
+@media only screen and (max-width: 990px) {
+  .events--section{
+    margin-bottom: 40%!important;
+  }
+  .events--home .events--card{
+    width: 90%!important;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .events--section{
+    margin-bottom: 60%!important;
+  }
+}
+.events--section{
+  margin-top: 5%;
+  height: 500px;
+  margin-bottom: 25%;
+}
+.events--section h2{
+  font-weight: bold;
+  font-size: 45px;
+  text-align: center;
+  padding: 0px 50px;
+  color: #170A59;
+  margin-bottom: 5%;
+}
+.events--home {
+  display: flex;
+  justify-content: center;
+}
+.events--home .events--card{
+  border: none;
+  box-shadow: 2px -2px 30px 0px #7474BF!important;
+  text-align: center;
+  width: 30%;
+  border-radius: 10px;
+  background: #7474BF; 
+  background: linear-gradient(to top, #348AC7, #7474BF); 
+  padding: 25px 0px;
+}
+.events--home .events--card h1{
+  color: white;
+  padding: 10px 10px;
+}
+.events--home .events--card button{
+  width: 200px;
+  padding: 10px 12px;
+  border: 4px solid #fff;
+  font-size: 22px;
+  color: aliceblue;
+  border-radius: 10px;
+}
+.events--section .events--card button:hover{
+  background-color: white;
+  color: #333333;
+  font-weight: bold;
+}
+.events--home .events--card .desc{
+  font-size: 18px;
+  padding: 10px 20px;
+  color: paleturquoise;
+  letter-spacing: 1px;
+}
+.events--home .events--card .date{
+  letter-spacing: 1px;
+  font-size: 20px;
+  font-family: 'Roboto Slab', serif;
+  color: peachpuff;
+  font-weight: bold;
+}
+
+
+
+/*
+||
+|| ********************** ********************** Footer & Contact Section ********************** ************************
+||
+*/
+
+.footer--section{
+  box-shadow: 2px -2px 20px 0px #170A59!important;
+  margin-bottom: 0px;
+  background-color: #170A59;
+  border-radius: 0%;
+  display: flex;
+}
+.footer--section .container{
+  margin-bottom: 50px;
+}
+.footer--section .footer--head{
+  margin-top: 20px;
+  display: flex;
+}
+.footer--section .head{
+  font-size: 30px;
+  margin-top: 50px;
+  color: aliceblue;
+}
+.footer--section .lists{
+  padding: 20px;
+  list-style: none;
+  display: flex;
+  gap: 1em;
+  flex-direction: column;
+}
+.footer--section .lists li{
+  font-size: 20px;
+  color: white;
+  letter-spacing: 1px;
+}
+.footer--section .lists a{
+  text-decoration: none!important;
+}
+
+.contact--section{
+  margin-top: -22%!important;
+  right: 0%;
+  display: flex;
+  justify-content: center;
+  text-align: left;
+}
+.contact--section .card{
+  border-radius: 20px;
+  padding: 10px 30px;
+}
+.contact_card h2{
+  font-weight: bold;
+  margin: 20px 0px;
+  background: #535353;
+  background: linear-gradient(to right, #333333, #536976);
+  background-clip: text;
+  -webkit-text-fill-color: transparent; 
+}
+.contact_card input{
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: whitesmoke;
+}
+.contact_card textarea{
+  height: 120px;
+  border: none;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: whitesmoke;
+}
+.contact_card select{
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  cursor: pointer;
+}
+.contact_card label{
+  font-weight: bold;
+  color: #333333;
+}
+.contact_card input:focus{
+  background-color: whitesmoke;
+  box-shadow: none;
+  border-bottom: 3px solid #348AC7;
+}
+.contact_card select:focus{
+  background-color: whitesmoke;
+  box-shadow: none;
+  border-bottom: 3px solid #348AC7;
+}
+.contact_card textarea:focus{
+  background-color: whitesmoke;
+  box-shadow: none;
+}
+.contact_btn{
+  border: 3px solid #333;
+  margin: 20px 0px;
+  border-radius: 10px;
+  color: #333333;
+  font-weight: bold;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: center;
+  background: transparent;
+  padding: 12px 10px;
+}
+.contact_btn:hover{
+  background-color: #170A59!important;
+  color: white;
+}
+.contact_btn:focus{
+  box-shadow: none;
+  color: #333;
+  background-color: #fff!important;
+}
+
+@media only screen and (max-width: 990px) {
+  .contact_card {
+    width: 95%;
+  }
+  .contact--section{
+    margin-top: 0%!important;
+  }
+  .footer--section .container{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer--section .footer--head{
+    justify-content: center;
+  }
+  .error--section{
+    margin-top: 40%!important;
+  }
+  .privacy--policy{
+    margin-top: 30%!important;
+    width: 90%;
+  }
+  .blogs{
+    margin-top: 30%;
+    padding: 30px;
+  }
+}
+.copyright--section{
+  text-align: center;
+  color: white;
+  padding: 20px;
+  opacity: 0.9;
+  border-radius: 0%;
+  margin-bottom: -1px;
+  background: #7474BF; 
+  background: linear-gradient(to top, #348AC7, #7474BF);
+}
+
+
+.error--section{
+  margin-top: 15%;
+  text-align: center;
+  margin-bottom: 20%;
+}
+.error--section h2{
+  color: #333;
+  padding: 10px 20px;
+  font-family: 'Roboto Slab', serif;
+}
+.error--btn{
+  text-align: center;
+}
+.error--btn button{
+  font-size: 20px;
+  width: 250px;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 8px;
+  background: #7474BF; 
+  background: linear-gradient(to right, #348AC7, #7474BF);
+  color: aliceblue;
+  border: 1px solid white;
+}
+.error--btn button:hover{
+  color: #fff;
+}
+
+
+
+
+@media only screen and (max-width: 990px) {
+  .creators{
+    margin-top: 35%!important;
+    margin-bottom: 15%!important;
+  }
+  .developer--section{
+    gap: 5em!important;
+  }
+  .developer--section article{
+    width: 90%!important;
+    box-shadow: 0px 0px 30px rgba(127, 0, 255, .8)!important;
+  }
+}
+.creators{
+  font-family: 'Roboto Slab', serif;
+  font-size: 40px;
+  margin-top: 10%;
+  margin-bottom: 4%;
+}
+.developer--section{
+  margin-bottom: 20%;
+  display: flex;
+  gap: 3em;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.developer--section article{
+  border: none;
+  padding: 20px;
+  border-radius: 10px;
+  width: 30%;
+  position: relative;
+  box-shadow: 10px -10px 30px -15px rgba(127, 0, 255, .8);
+}
+.developer--section article  img{
+  border-radius: 20px;
+  padding: 10px;
+}
+.developer--section article div{
+  display: flex;
+  justify-content: center;
+
+}
+.developer--section article  h1{
+  font-family: 'Roboto Slab', serif;
+  font-size: 20px;
+  background-color: #fff;
+  padding: 8px 25px;
+  position: absolute;
+  top: 1%;
+  border-radius: 8px;
+}
+.developer--text{
+  text-align: center;
+}
+.developer--text h3{
+  margin-top: 10px;
+  font-weight: bold;
+  font-family: cursive;
+  letter-spacing: 1px;
+}
+.developer--text p{
+  padding: 10px 20px;
+}
+
+
+
+.privacy--policy{
+  margin-top: 10%;
+  border-radius: 10px;
+  margin-bottom: 15%;
+  padding: 50px;
+}
+.privacy--policy h2{
+  font-family: 'Roboto Slab', serif;
+  background: #7474BF; 
+  background: linear-gradient(to right, #348AC7, #7474BF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: transparent;
+}
+
+.blogs span{
+  font-family: 'Roboto Slab', serif;
+  background: #7474BF; 
+  background: linear-gradient(to right, #348AC7, #7474BF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: transparent;
+}
+
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+::-webkit-scrollbar-track {
+  background: #348AC7;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 20px!important;
+  background: #170A59;
+}

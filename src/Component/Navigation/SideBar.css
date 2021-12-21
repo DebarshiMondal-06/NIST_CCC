@@ -1,0 +1,98 @@
+.sidebar--section{
+  width: 100%;
+  top: 0%;
+  position: fixed;
+  z-index: 5;
+  background: transparent;
+}
+.sidebar--section .sidebar--card{
+  box-shadow: 2px -2px 20px 0px #348AC7!important;
+  border: none;
+  width: 30%;
+  background: #7474BF; 
+  background: linear-gradient(to top, #348AC7, #7474BF);
+  height: 100vh;
+  border-radius: 0;
+  border-top-right-radius: 20px;
+}
+.sidebar--section .sidebar--card img{
+  position: absolute;
+  display: flex;
+  align-self: center;
+  top: 20%;
+  opacity: 0.15;
+  height: 450px;
+  width: 300px;
+}
+@media only screen and (max-width: 1000px) {
+  .sidebar--section .sidebar--card{
+    width: 50%!important;
+  }
+}
+@media only screen and (max-width: 690px) {
+  .sidebar--section .sidebar--card{
+    width: 100%!important;
+  }
+  .sidebar--section .sidebar--head h2{
+    font-size: 35px!important;
+  }
+  .sidebar--section .sidebar--head h6 .fa-times{
+    font-size: 30px!important;
+  }
+  .sidebar--section .sidebar--body{
+    margin-top: 10%!important;
+  }
+}
+.sidebar--section .sidebar--head{
+  position: relative;
+  color: aliceblue;
+}
+.sidebar--section .sidebar--head h2{
+  padding: 20px 20px;
+  font-size: 40px;
+  font-weight: bold;
+}
+.sidebar--section .sidebar--head h6 .fa-times{
+  position: absolute;
+  right: 6%;
+  top: 25px;
+  font-size: 35px;
+}
+.sidebar--section .line{
+  margin-top: -10px;
+  border-bottom: 8px solid aliceblue!important;
+}
+.sidebar--section .sidebar--body{
+  width: 100%;
+  margin-top: 15%;
+  padding: 0%;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  text-align: center;
+  align-items: center;
+}
+.sidebar--section .sidebar--body .list{
+  color: white!important;
+  list-style: none;
+  font-size: 28px;
+  cursor: pointer;
+  width: 50%;
+  padding: 10px;
+  border-radius: 20px;
+  transition: 0.4s all ease-in;
+}
+.sidebar--section .sidebar--body .list{
+  color: white;
+  text-decoration: none;
+}
+.sidebar--section .sidebar--body .list:hover{
+  background-color: #170A59;
+  font-weight: bolder;
+}
+
+
+
+
+
+

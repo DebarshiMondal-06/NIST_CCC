@@ -1,0 +1,225 @@
+@media only screen and (max-width: 900px) {
+  .member--section{
+    text-align: center;
+    margin-top: 40%!important;
+  }
+  .member--section h1{
+    margin-bottom: 40px!important;
+  }
+  .member--section .operation--members{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+.member--section{
+  margin-top: 10%;
+  margin-bottom: 20%;
+}
+.member--section .operation--members{
+  display: flex;
+  gap: 2em;
+  margin-bottom: 10px;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.member--section .operation--members div{
+  text-align: center!important;
+  position: relative;
+  font-family: 'Roboto Slab', serif;
+  font-size: 25px;
+  cursor: pointer;
+}
+.member--section h1{
+  font-size: 35px;
+  font-weight: bold;
+  background: #7474BF; 
+  background: linear-gradient(to right, #348AC7, #7474BF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: transparent;
+}
+.member--section .operate{
+  border-bottom: 3.5px solid #170A59;
+  width: 50px;
+  color: #333;
+  position: absolute;
+  left: 40%;
+  padding: 0%;
+}
+.member--section article{
+  width: 100%;
+  border-radius: 10px;
+}
+.member--lists{
+  display: flex;
+  gap: 2rem;
+  padding: 60px 0px;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+.president--section{
+  margin-bottom: 10px;
+}
+.member--div{
+  width: 16rem;
+  border-radius: 8px;
+  border: none;
+  transition: 0.5s all ease-in-out!important;
+}
+.member--div:hover{
+  cursor: pointer;
+  transform: translateY(-10px)!important;
+}
+.member--div .member--img{
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.member--div .member--img img{
+  border-radius: 20px!important;
+  padding: 15px;
+}
+.member--div .member--img p{
+  width: 70%;
+  position: absolute;
+  bottom: -5%;
+  background-color: white;
+  padding: 5px 1px;
+  border-radius: 8px;
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-family: 'Roboto Slab', serif;
+  color: #333;
+  text-transform: uppercase!important;
+}
+.member--div .card-body{
+  margin: 0%;
+}
+.member--div .card-body h5{
+  font-size: 22px;
+  margin: 0%;
+  padding: 0%;
+  color: #333;
+}
+.link_to_brief{
+  color: #333;
+  text-decoration: none!important;
+}
+.link_to_member{
+  text-decoration: none!important;
+}
+
+
+
+
+
+
+
+
+
+/* // ******************** Watch View Section ********************************************* */
+@media only screen and (max-width: 690px) {
+  .member_brief section .back_btn{
+    margin-top: 20%!important;
+  }
+  .link_to_member {
+    display: flex;
+    justify-content: center;
+  }
+
+}
+@media only screen and (max-width: 990px) {
+  .member_brief section{
+    margin-top: 20%!important;
+  }
+  .watch_desc_section{
+    margin-top: -10px!important;
+    padding: 50px;
+    text-align: center;
+  }
+  .watch_img_card{
+    margin-left: 0%!important;
+    width: 100%!important;
+    height: auto!important;
+  }
+  .watch_img_card img{
+    padding-top: 5%!important;
+  }
+  .socail--ids{
+    justify-content: center;
+  }
+}
+.back_btn{
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  background-color: whitesmoke;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+}
+.back_btn:hover{
+  box-shadow: 0px 4px 25px 4px #348AC7;
+}
+.back_btn i{
+  padding: 14px 0px;
+  color: #333;
+}
+.watch_img_card{
+  margin: 0%;
+  margin-top: 10%;
+  margin-left: 15%;
+  height: 450px;
+  width: 350px;
+  border-radius: 10px;
+  border: none!important;
+}
+.watch_img_card img{
+  padding: 20px;
+  border-radius: 10px;
+  padding-top: 20%;
+}
+.watch_desc_section{
+  font-family: 'Poppins', sans-serif;
+  color: #333333;
+}
+.watch_desc_section p .badge{
+  letter-spacing: 1px;
+}
+.watch_desc_section p{
+  font-size: 28px;
+  font-weight: 400!important;
+}
+.name{
+  letter-spacing: 1px;
+  font-size: 36px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.watch_desc_section .desc{
+  font-size: 18px;
+  font-weight: 400;
+  color: #777777;
+}
+.watch_desc_section .desc::first-letter{
+  text-transform: capitalize;
+}
+.socail--ids{
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  margin-top: 30px;
+}
+.socail--ids p{
+  cursor: pointer;
+  font-size: 35px;
+  transition: 0.3s all ease-in-out;
+  color: #333;
+}
+.socail--ids p:hover{
+  transform: translateY(-4px);
+}
+
+
+
