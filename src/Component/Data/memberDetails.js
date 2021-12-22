@@ -277,7 +277,7 @@ export const club_member_details = [
     profile_img: 'https://avatars.githubusercontent.com/u/96484862?v=4',
     linkedln_link: `https://www.linkedin.com/in/vysyaraju-raju-731151227/`,
     github_link: `https://github.com/VCharanRaju12`,
-    year: '2020'
+    year: '2020',
   },
   {
     id: 11,
