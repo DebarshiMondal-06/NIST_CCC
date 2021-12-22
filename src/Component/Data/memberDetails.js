@@ -291,4 +291,16 @@ export const club_member_details = [
     github_link: `https://github.com/vikashkumar8507`,
     year: '2020'
   },
+  {
+    id: 12,
+    firstname: 'Ashutosh',
+    fullname: 'Ashutosh Pattnaik',
+    description: `Interesting in coding & web development`,
+    desgination: '',
+    member_type: 'Core Member',
+    profile_img: 'https://avatars.githubusercontent.com/u/76533325?s=400&u=88c069156bcf3ab1cba5abc49ac492a28e53eba6&v=4.png ',
+    linkedln_link: `https://www.linkedin.com/in/ashutosh-pattnaik-386415229/`,
+    github_link: `https://github.com/Pattnaikbabu3`,
+    year: '2020'
+  },
 ];
