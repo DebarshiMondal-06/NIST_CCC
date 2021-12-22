@@ -303,6 +303,18 @@ export const club_member_details = [
     github_link: `https://github.com/Pattnaikbabu3`,
     year: '2020'
   },
+   {
+    id: 9,
+    firstname: 'ANKIT',
+    fullname: 'Ankit mishra',
+    description: `intrested in coding & web development`,
+    desgination: 'web developer',
+    member_type: 'Core Member',
+    profile_img: 'https://avatars.githubusercontent.com/u/96532131?v=4',
+    linkedln_link: `https://www.linkedin.com/in/ankit-mishra-0a5467213/`,
+    github_link: `https://github.com/1S2S-ANKIT`,
+    year: '2020'
+  },
 ];
 
 
