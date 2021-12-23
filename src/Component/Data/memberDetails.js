@@ -315,6 +315,18 @@ export const club_member_details = [
     github_link: `https://github.com/1S2S-ANKIT`,
     year: '2020'
   },
+  {
+    id: 12,
+    firstname: 'saswat',
+    fullname: 'saswat somya sahu',
+    description: `Interesting in coding & web development`,
+    desgination: 'softwear developer',
+    member_type: 'Core Member',
+    profile_img: 'https://avatars.githubusercontent.com/u/77150278?v=4',
+    linkedln_link: `https://www.linkedin.com/in/saswatsomya-sahu-63b0611a7//`,
+    github_link: `https://github.com/saswatsomyasahu`,
+    year: '2020'
+  },
 ];
 
 
