@@ -317,10 +317,10 @@ export const club_member_details = [
   },
   {
     id: 12,
-    firstname: 'saswat',
-    fullname: 'saswat somya sahu',
+    firstname: 'Saswat',
+    fullname: 'Saswat somya sahu',
     description: `Interesting in coding & web development`,
-    desgination: 'softwear developer',
+    desgination: 'Software developer',
     member_type: 'Core Member',
     profile_img: 'https://avatars.githubusercontent.com/u/77150278?v=4',
     linkedln_link: `https://www.linkedin.com/in/saswatsomya-sahu-63b0611a7//`,
