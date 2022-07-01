@@ -28,7 +28,7 @@ const EventDetails = () => {
     {
       filterData && filterData.length > 0
         ? filterData.map((item, i) => {
-          const { event_type, name, describe, logo } = item;
+          const { event_type, name, describe, logo, short_desc } = item;
           return <> <div key={i} className="event--card card shadow-lg">
             <p className="badge bg-warning"><i className="fas fa-atom"></i> {event_type}</p>
             <main className="p-0">
@@ -43,7 +43,7 @@ const EventDetails = () => {
               </p>
               <h6 className="text-info" style={{
                 fontFamily: 'cursive'
-              }}> 👉  Building <b>Cloud Native</b> Application with AWS <i className="fas fa-shapes"></i> </h6>
+              }}> {short_desc} <i className="fas fa-shapes"></i> </h6>
               {
                 event_type === 'Upcoming' ? <Link to="/events-details">
                   <button className="btn btn-primary">

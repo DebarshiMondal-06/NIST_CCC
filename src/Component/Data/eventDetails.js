@@ -9,7 +9,8 @@ export const eventDetails = [
     Days: 2,
     event_type: 'Previous',
     check_type: true,
-    logo: "https://www.freecodecamp.org/news/content/images/size/w2000/2022/01/Serverless-computing-768x402-1.png"
+    logo: "https://www.freecodecamp.org/news/content/images/size/w2000/2022/01/Serverless-computing-768x402-1.png",
+    short_desc: "👉  Building Cloud Native Application with AWS"
   },
   {
     id: 111,
@@ -21,6 +22,7 @@ export const eventDetails = [
     Days: 2,
     event_type: 'Upcoming',
     check_type: true,
-    logo: "https://www.pngkit.com/png/full/26-267054_cloud-puzzle-3d-rendering.png"
+    logo: "https://www.pngkit.com/png/full/26-267054_cloud-puzzle-3d-rendering.png",
+    short_desc: "👉  Play, Solve & Win exciting prices"
   }
 ]
