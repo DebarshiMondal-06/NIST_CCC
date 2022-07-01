@@ -28,12 +28,12 @@ const EventDetails = () => {
     {
       filterData && filterData.length > 0
         ? filterData.map((item, i) => {
-          const { event_type, name, describe } = item;
+          const { event_type, name, describe, logo } = item;
           return <> <div key={i} className="event--card card shadow-lg">
             <p className="badge bg-warning"><i className="fas fa-atom"></i> {event_type}</p>
             <main className="p-0">
               <img width="250" className="p-0" height="180"
-                src={eventlogo} alt=""
+                src={logo} alt=""
               />
             </main>
             <main className="event--text">

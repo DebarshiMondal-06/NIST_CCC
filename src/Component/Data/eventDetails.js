@@ -8,7 +8,8 @@ export const eventDetails = [
     venue: 'Will Update',
     Days: 2,
     event_type: 'Previous',
-    check_type: true
+    check_type: true,
+    logo: "https://www.freecodecamp.org/news/content/images/size/w2000/2022/01/Serverless-computing-768x402-1.png"
   },
   {
     id: 111,
@@ -19,6 +20,7 @@ export const eventDetails = [
     venue: 'Will Update',
     Days: 2,
     event_type: 'Upcoming',
-    check_type: true
+    check_type: true,
+    logo: "https://www.pngkit.com/png/full/26-267054_cloud-puzzle-3d-rendering.png"
   }
 ]
