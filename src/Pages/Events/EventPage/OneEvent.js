@@ -3,18 +3,15 @@ import { Link } from 'react-router-dom';
 import { eventDetails } from '../../../Component/Data/eventDetails';
 import { GlobalContext } from '../../../Context';
 import ModalRegister from './ModalRegister';
-import ViewTicket from './ViewTicket';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import ReactConfetti from 'react-confetti/dist/react-confetti';
-import FeedBack from './FeedBack';
-import Winners from './AfterEvent/Winners';
 
 
 
 const OneEvent = () => {
-  const [value] = useState(eventDetails[0]);
+  const [value] = useState(eventDetails[1]);
   const { setDis, dis } = useContext(GlobalContext);
   const [register, setRegister] = useState(false);
 
@@ -114,7 +111,7 @@ const OneEvent = () => {
 
   return <section className="container event--brief--section">
     <ReactConfetti numberOfPieces={dis ? 250 : 0} run={true} />
-    <div style={{ margin: '10% 0px' }}>
+    <div style={{ margin: '10% 0px' }}>``
       <Link to="/events-all" className="link_to_member">
         <article className="event--back_btn">
           <i className="fas fa-long-arrow-alt-left fa-2x"></i>
@@ -137,7 +134,7 @@ const OneEvent = () => {
       <div className="card shadow  text-center p-0 animate__animated animate__zoomIn">
         <p className={`event-describe p-4 ${getUserItem ? 'event-describe--registred' : 'event-describe'}`}>{value.describe}</p>
         <div className="event-extra">
-          <p className='badge bg-info'>2 Days Workshops</p>
+          <p className='badge bg-info'>1 Days Event</p>
         </div>
         <article className="event--info">
           <h6><i className="fas fa-hourglass-start"></i> Timings 👇 </h6>
@@ -148,21 +145,18 @@ const OneEvent = () => {
           }
           <div className="timings" id="view-ticket">
             <br />
-            <p className="date"><b>Date:</b> 10<sup>th</sup> - 11<sup>th</sup> of November</p>
-            <p><b>Time:</b> 5pm onwards</p>
+            <p className="date"><b>Date:</b> XX<sup>th</sup> - XX<sup>th</sup> of XX</p>
+            <p><b>Time:</b> XXpm onwards</p>
           </div>
         </article>
         <article className="place">
-          <p className="badge bg-warning" id="view-register">Venue: <i className="fas fa-map-marker-alt"></i> <b>Gal - 301</b></p>
+          <p className="badge bg-warning" id="view-register">Venue: <i className="fas fa-map-marker-alt"></i> <b>XX</b></p>
         </article>
       </div>
     </div>
     {
       register ? <ModalRegister setRegister={setRegister} /> : null
     }
-    <div>
-      {/* <Winners /> */}
-    </div>
     <br />
   </section>
 }

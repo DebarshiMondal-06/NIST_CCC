@@ -12,13 +12,13 @@ const SelectBox = ({ errors, register }) => {
     { name: 'B.Tech - CE', value: 'b.tech - CE' },
   ];
   var year_wise = [
-    { name: '2018', value: '2018' },
-    { name: '2019', value: '2019' },
     { name: '2020', value: '2020' },
+    { name: '2021', value: '2021' },
+    { name: '2022', value: '2022' },
   ];
   var residence = [
-    {name: 'Hostelite', value: 'hostelite'},
-    {name: 'Locality', value: 'Locality'},
+    { name: 'Hostelite', value: 'hostelite' },
+    { name: 'Locality', value: 'Locality' },
   ]
 
 
@@ -64,6 +64,15 @@ const SelectBox = ({ errors, register }) => {
         }
       </select>
       {errors.residence && <span className="text-danger">This field is required</span>}
+    </div>
+
+    <div className="col-md-6 mb-4">
+      <label className="form-label">Parent's Contact</label>
+      <input type="text" className="form-control" {...register("parent_contact", { required: true, pattern: /^[0-9]{10}$/ })} />
+      <p>{errors.parent_contact ? errors.parent_contact?.type === 'pattern' ? <span className="text-danger">must be of 10 digits</span>
+        : <span className="text-danger">This field is required</span>
+        : null
+      }</p>
     </div>
   </section>
 }
