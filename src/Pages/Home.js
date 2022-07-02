@@ -28,7 +28,7 @@ const Home = () => {
     </article>
     <div className="">
       <article className="home--text" data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-out">
-        <h1>NIST</h1>
+        <h1>NIST IST</h1>
         <p><b>Cloud Computing</b> Club</p>
         <h6>An Education Society deals with the Cloud and Services at NIST Campus.</h6>
       </article>
