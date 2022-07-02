@@ -7,10 +7,13 @@ import MainSpinner from '../Component/Spinners/MainLoader';
 import { adminAuthContext } from './AdminContext';
 import { useLocation } from 'react-use';
 import Swal from 'sweetalert2';
+import ViewData from './ViewData';
+import { GlobalContext } from '../Context';
 
 
 const RegisterTable = () => {
   const { pathname } = useLocation();
+  const { setViewData, setViewModal } = useContext(GlobalContext);
   const { get_all_register_users, data, user_loader } = useContext(adminAuthContext);
   const [loading, setLoading] = useState({
     delete_loader: false,
@@ -64,6 +67,7 @@ const RegisterTable = () => {
 
 
   return <section className="view--request table-responsive">
+    <ViewData />
     <article className="operation mt-4 mb-5">
       <h3>Registered User</h3>
       <input type="text" className="form-control" placeholder="Search by name"
@@ -80,14 +84,13 @@ const RegisterTable = () => {
               <th scope="col">Email</th>
               <th scope="col">Name</th>
               <th scope="col">Contact</th>
-              <th>Residence</th>
-              <th scope="col">Delete</th>
+              <th scope="col">Actions</th>
             </tr>
           </thead>
           <tbody className="table--body text-capitalize">
             {
               filterData && filterData.map((items, i) => {
-                const { ticketId, emailId, contact, name, residence } = items;
+                const { ticketId, emailId, contact, name } = items;
                 return <tr key={i} style={{
                   cursor: 'pointer',
                   backgroundColor: (i % 2) === 0 ? 'white' : 'aliceblue'
@@ -97,8 +100,14 @@ const RegisterTable = () => {
                   <td>{emailId}</td>
                   <td className="text-capitalize">{name}</td>
                   <td>{contact}</td>
-                  <td className="text-capitalize">{residence || '--'}</td>
                   <td>
+                    <button className='btn btn-info' onClick={() => {
+                      setViewModal(true)
+                      setViewData(items)
+                    }}>
+                      <i className="fas fa-eye"></i>
+                    </button>
+                    &nbsp; &nbsp;
                     <button onClick={() => open_choose(emailId, i)}
                       className="btn btn-danger">
                       {

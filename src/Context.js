@@ -11,9 +11,12 @@ const Context = ({ children }) => {
   const [registerModal, setRegisterModal] = useState(false);
   const { pathname } = useLocation();
   const [dis, setDis] = useState(false);
-
-
   
+  const [viewData, setViewData] = useState({});
+  const [viewModal, setViewModal] = useState(false);
+
+
+
   useEffect(() => {
     if (modalOpen) {
       document.body.style.overflowY = 'hidden';
@@ -37,7 +40,12 @@ const Context = ({ children }) => {
     memberDetails,
     setMemberDetails,
     setRegisterModal,
-    registerModal
+    registerModal,
+
+    setViewData,
+    viewData,
+    setViewModal,
+    viewModal
   }}>
     {children}
   </GlobalContext.Provider>

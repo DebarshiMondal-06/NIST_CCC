@@ -8,6 +8,7 @@ import SelectBox from './SelectBox';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import ProcessSpinner from '../../../Component/Spinners/ProcessSpinner';
+import moment from "moment";
 
 
 
@@ -30,8 +31,8 @@ const ModalRegister = ({ setRegister }) => {
     var configure = {
       inputs: {
         check: "register", email: `${emailId.toLowerCase().trim()}`, name: `${fullname}`, branch: `${branch}`, batch: `${batch}`,
-        rollno: `${rollno}`, ticket: `${ticket}`, contact: `${contact}`, residence: `${residence}`, address: `${address ? address : null}`,
-        section: `${section}`, parent_contact: `${parent_contact}`
+        rollno: `${rollno}`, ticket: `${ticket}`, contact: `${contact}`, residence: `${residence}`, address: `${address}`,
+        section: `${section}`, parent_contact: `${parent_contact}`, createdOn: `${moment().format()}`
       }
     };
     var configure_inputs = {

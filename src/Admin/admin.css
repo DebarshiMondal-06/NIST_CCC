@@ -156,13 +156,60 @@
    padding: 5px 40px;
    margin-top: -5px;
  }
+ .view--request .table--body button{
+  padding: 2px 20px!important;
+  font-size: 15px;
+  color: white!important;
+ }
 
 
 
 
 
-
-
+ .view--modal article{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap!important;
+}
+.view--modal article p{
+  width: 50%;
+  font-weight: bolder;
+  color: rgb(0, 0, 0);
+}
+.view--modal article p span{
+  font-weight: normal;
+  color: #333;
+  text-transform: capitalize;
+}
+.view--modal article p .bg-info{
+  padding: 2px 5px;
+  font-size: 14px;
+  border-radius: 5px;
+  color: white;
+  letter-spacing: 1px;
+}
+.view--modal article .emailid{
+  text-transform: lowercase;
+  color: #348AC7;
+}
+.view--modal .modal--title p{
+  font-size: large;
+  font-weight: bold;
+}
+.modal--title p span{
+  padding: 4px 10px;
+  color: white;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+@media only screen and (max-width: 990px) {
+  .view--modal article p{
+    width: 100%!important;
+  }
+  .view--modal article{
+    flex-direction: column;
+  }
+}
 
 
 
