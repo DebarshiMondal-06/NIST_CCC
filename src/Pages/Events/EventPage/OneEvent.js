@@ -135,7 +135,7 @@ const OneEvent = () => {
       <div className="card shadow  text-center p-0 animate__animated animate__zoomIn">
         <p className={`event-describe p-4 ${getUserItem ? 'event-describe--registred' : 'event-describe'}`}>{value.describe}</p>
         <div className="event-extra">
-          <p className='badge bg-info'>1 Days Event</p>
+          <p className='badge bg-info'>1 Day Event</p>
         </div>
         <article className="event--info">
           <h6><i className="fas fa-hourglass-start"></i> Timings 👇 </h6>
