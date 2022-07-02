@@ -44,14 +44,28 @@ const ModalRegister = ({ setRegister }) => {
       data: configure_inputs
     }).then(() => {
       setLoad(false);
-      window.scrollTo(0, 0);
-      localStorage.setItem('user_data', JSON.stringify({ ticket, ...data }));
-      toast.success('Thanks for Registering');
-      setDis(true);
-      setRegister(false);
-      setTimeout(() => {
-        setDis(false);
-      }, 2000);
+      if (el.data && el.data.status === 'SUCCEEDED') {
+        var parseData = JSON.parse(el.data.output);
+        if (parseData.SdkResponseMetadata) {
+          window.scrollTo(0, 0);
+          localStorage.setItem('user_data', JSON.stringify({ ticket, ...data }));
+          toast.success('Thanks for Registering');
+          setDis(true);
+          setRegister(false);
+          setTimeout(() => {
+            setDis(false);
+          }, 2000);
+        } else {
+          window.scrollTo(0, 0);
+          localStorage.setItem('user_data', JSON.stringify(parseData));
+          toast.info('Already Registered!');
+          setTimeout(() => {
+            window.location.reload();
+          }, 2000);
+        }
+      } else {
+        toast.error('Something Went Wrong!')
+      }
     })
   };
 
