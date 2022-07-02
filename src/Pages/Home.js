@@ -19,7 +19,7 @@ const Home = () => {
       <p><a href="https://www.linkedin.com/company/nist-cloud-computing-club" target="_blank" rel="noreferrer">
         <i className="fab fa-linkedin text-primary"></i>
       </a></p>
-      <p><a href="https://www.instagram.com/cloud_computing_club.nist/" target="_blank" rel="noreferrer">
+      <p><a href="https://www.instagram.com/cloudcomputingclub_official/" target="_blank" rel="noreferrer">
         <i className="fab fa-instagram"></i>
       </a></p>
       <p><a href="https://www.facebook.com/ccc.nist/" target="_blank" rel="noreferrer">
@@ -28,7 +28,7 @@ const Home = () => {
     </article>
     <div className="">
       <article className="home--text" data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-out">
-        <h1>NIST College</h1>
+        <h1>NIST</h1>
         <p><b>Cloud Computing</b> Club</p>
         <h6>An Education Society deals with the Cloud and Services at NIST Campus.</h6>
       </article>
