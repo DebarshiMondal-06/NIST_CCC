@@ -17,7 +17,6 @@ const AdminCard = () => {
 
 
 
-
   return <div className="row">
     <Link to="/admin/register" className="links--admin col-md-4 mb-4">
       <div className="card border-left-primary shadow h-100 py-2">
