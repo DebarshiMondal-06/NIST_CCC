@@ -42,7 +42,7 @@ const ModalRegister = ({ setRegister }) => {
       method: 'POST',
       url: 'https://6svbsfa95h.execute-api.ap-south-1.amazonaws.com/dev',
       data: configure_inputs
-    }).then(() => {
+    }).then((el) => {
       setLoad(false);
       if (el.data && el.data.status === 'SUCCEEDED') {
         var parseData = JSON.parse(el.data.output);
