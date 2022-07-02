@@ -16,10 +16,6 @@ const RegisterTable = () => {
     delete_loader: false,
     index: null
   });
-  const [credLoader, setCredLoader] = useState({
-    cred_loader: false,
-    index: null
-  });
   const [input, setInput] = useState('');
   useEffect(() => {
     get_all_register_users();
@@ -58,31 +54,6 @@ const RegisterTable = () => {
   }
 
 
-  const sent_credentials = (email, name, index) => {
-    setCredLoader({ cred_loader: true, index });
-    var getName = name.split(' ')[0];
-    var configure = {
-      inputs: {
-        check: "credentials", email, name: `${getName}`
-      }
-    };
-    var configure_inputs = {
-      stateMachineArn: 'arn:aws:states:ap-south-1:143151111018:stateMachine:NIST_CCC_MACHINE',
-      input: JSON.stringify(configure)
-    };
-    axios({
-      method: 'POST',
-      url: 'https://6svbsfa95h.execute-api.ap-south-1.amazonaws.com/dev',
-      data: JSON.stringify(configure_inputs, null, 2)
-    }).then((el) => {
-      if (el.data && el.data.status === 'SUCCEEDED') {
-        get_all_register_users();
-        setCredLoader({ cred_loader: false, index: null });
-      }
-    })
-  };
-
-
 
   var filterData = [];
   filterData = data && data.filter((items) => {
@@ -92,8 +63,8 @@ const RegisterTable = () => {
 
 
 
-  return <section className="view--request table-responsive ">
-    <article className="operation">
+  return <section className="view--request table-responsive">
+    <article className="operation mt-4 mb-5">
       <h3>Registered User</h3>
       <input type="text" className="form-control" placeholder="Search by name"
         onChange={(e) => setInput(e.target.value)} />
@@ -110,14 +81,13 @@ const RegisterTable = () => {
               <th scope="col">Name</th>
               <th scope="col">Contact</th>
               <th>Residence</th>
-              <th scope="col">Cred</th>
               <th scope="col">Delete</th>
             </tr>
           </thead>
           <tbody className="table--body text-capitalize">
             {
               filterData && filterData.map((items, i) => {
-                const { ticketId, emailId, contact, name, sent_cred, residence } = items;
+                const { ticketId, emailId, contact, name, residence } = items;
                 return <tr key={i} style={{
                   cursor: 'pointer',
                   backgroundColor: (i % 2) === 0 ? 'white' : 'aliceblue'
@@ -128,20 +98,6 @@ const RegisterTable = () => {
                   <td className="text-capitalize">{name}</td>
                   <td>{contact}</td>
                   <td className="text-capitalize">{residence || '--'}</td>
-                  <td>
-                    {
-                      sent_cred === 'YE'
-                        ? <span className="badge" style={{
-                          fontSize: 16, textTransform: 'capitalize', padding: '5px 20px', backgroundColor: 'lightgreen'
-                        }}>Sent</span>
-                        : <button onClick={() => sent_credentials(emailId, name, i)}
-                          className="text-white btn btn-info btn--1">
-                          {
-                            (credLoader.cred_loader && i === credLoader.index) ? <ProcessSpinner /> : <i className="fas fa-check"></i>
-                          }
-                        </button>
-                    }
-                  </td>
                   <td>
                     <button onClick={() => open_choose(emailId, i)}
                       className="btn btn-danger">

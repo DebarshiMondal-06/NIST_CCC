@@ -24,7 +24,7 @@ const Login = () => {
       toast.error('User Not Found!');
     }
   };
-  const responseError = (err) => {
+  const responseError = () => {
     setLoginBtn('Try Again');
     toast.error('Login Failed, Try Again!');
   }

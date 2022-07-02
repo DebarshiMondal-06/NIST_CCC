@@ -341,5 +341,10 @@ export const admin_data = [
     email: 'ssreddy.cse.2018@nist.edu',
     name: 'Sutari Sunil Reddy',
     year: 2018
+  },
+  {
+    email: 'debopiku1122@gmail.com',
+    name: 'Debarshi',
+    year: 2018
   }
 ]

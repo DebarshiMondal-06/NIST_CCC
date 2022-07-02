@@ -7,12 +7,12 @@ import { adminAuthContext } from './AdminContext';
 
 
 const AdminCard = () => {
-  const { data, get_all_register_users, get_all_hiring_users, hireUser } = useContext(adminAuthContext);
+  const { data, get_all_register_users, hireUser } = useContext(adminAuthContext);
   const { pathname } = useLocation();
 
   useEffect(() => {
     get_all_register_users();
-    get_all_hiring_users();
+    // get_all_hiring_users();
   }, [pathname]);
 
 
