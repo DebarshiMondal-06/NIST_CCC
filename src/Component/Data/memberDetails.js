@@ -333,18 +333,13 @@ export const club_member_details = [
 
 export const admin_data = [
   {
-    email: 'dmondal.it.2018@nist.edu',
-    name: 'Debarshi Mondal',
-    year: 2018
-  },
-  {
-    email: 'ssreddy.cse.2018@nist.edu',
-    name: 'Sutari Sunil Reddy',
-    year: 2018
-  },
-  {
     email: 'debopiku1122@gmail.com',
     name: 'Debarshi',
     year: 2018
+  },
+  {
+    email: 'vikas.it.2019@nist.edu',
+    name: 'Vikas Kumar',
+    year: 2019
   }
 ]
