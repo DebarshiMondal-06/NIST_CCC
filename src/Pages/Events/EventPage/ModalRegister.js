@@ -13,33 +13,35 @@ import ProcessSpinner from '../../../Component/Spinners/ProcessSpinner';
 
 const ModalRegister = ({ setRegister }) => {
   const { setDis } = useContext(GlobalContext);
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors }, watch } = useForm();
   const [load, setLoad] = useState(false);
 
 
+  const residence = watch('residence');
 
 
   const sumbit_data = (data) => {
     setLoad(true);
-    // const { fullname, email, rollno, contact, branch, batch, residence } = data;
+    const { fullname, emailId, rollno, contact, branch, batch, residence, parent_contact, address, section } = data;
     var ticket = `CCC_${randomstring.generate({
       length: 6,
       capitalization: 'uppercase'
     })}`;
-    // var configure = {
-    //   inputs: {
-    //     check: "register", email: `${email.toLowerCase().trim()}`, name: `${fullname}`, branch: `${branch}`, batch: `${batch}`,
-    //     rollno: `${rollno}`, ticket: `${ticket}`, contact: `${contact}`, residence: `${residence}`,
-    //   }
-    // };
-    // var configure_inputs = {
-    //   stateMachineArn: 'arn:aws:states:ap-south-1:143151111018:stateMachine:NIST_CCC_MACHINE',
-    //   input: JSON.stringify(configure)
-    // };
+    var configure = {
+      inputs: {
+        check: "register", email: `${emailId.toLowerCase().trim()}`, name: `${fullname}`, branch: `${branch}`, batch: `${batch}`,
+        rollno: `${rollno}`, ticket: `${ticket}`, contact: `${contact}`, residence: `${residence}`, address: `${address ? address : null}`,
+        section: `${section}`, parent_contact: `${parent_contact}`
+      }
+    };
+    var configure_inputs = {
+      stateMachineArn: 'arn:aws:states:ap-south-1:143151111018:stateMachine:NIST_CCC_MACHINE',
+      input: JSON.stringify(configure)
+    };
     axios({
       method: 'POST',
       url: 'https://6svbsfa95h.execute-api.ap-south-1.amazonaws.com/dev',
-      data
+      data: configure_inputs
     }).then(() => {
       setLoad(false);
       window.scrollTo(0, 0);
@@ -98,11 +100,13 @@ const ModalRegister = ({ setRegister }) => {
             </section>
             <SelectBox register={register} errors={errors} />
 
-            <div className="col-md-12 mb-4">
-              <label className="form-label">Your's Full Address</label>
-              <textarea type="text" className="form-control" {...register("address", { required: true })} />
-              <p>{errors.address && <span className="text-danger">This field is required</span>}</p>
-            </div>
+            {
+              residence === 'Locality' ? <div className="col-md-12 mb-4">
+                <label className="form-label">Your's Full Address</label>
+                <textarea type="text" className="form-control" {...register("address", { required: true })} />
+                <p>{errors.address && <span className="text-danger">This field is required</span>}</p>
+              </div> : null
+            }
 
             <article style={{ float: 'right', display: 'flex', gap: "1em" }}>
               <button className="btn btn-success" style={{ width: '150px' }}>

@@ -16,7 +16,7 @@ const Events = () => {
             src={data[0].logo} alt="" />
         </article>
         <h1>{data[0].name}</h1>
-        <p className="date">xx<sup>th</sup> - xx<sup>th</sup> xx</p>
+        <p className="date">05<sup>th</sup> July, 2021</p>
         <p className="desc">
           {data[0].describe}
         </p>

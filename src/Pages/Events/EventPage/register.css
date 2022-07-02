@@ -75,6 +75,22 @@
   font-size: 22px;
 }
 
+.select--box-3{
+  position: relative;
+}
+.select--box-3 i{
+  position: absolute;
+  right: 8%;
+  top: 40%;
+  font-size: 22px;
+}
+.select--box-3--modify i{
+  position: absolute;
+  right: 8%;
+  top: 34%;
+  font-size: 22px;
+}
+
 
 
 .view--ticket .card{

@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import ReactConfetti from 'react-confetti/dist/react-confetti';
-
+import ViewTicket from "../EventPage/ViewTicket";
 
 
 const OneEvent = () => {
@@ -37,6 +37,7 @@ const OneEvent = () => {
       url: 'https://6svbsfa95h.execute-api.ap-south-1.amazonaws.com/dev',
       data: JSON.stringify(configure_inputs, null, 2)
     }).then((el) => {
+      console.log(el);
       if (el.data && el.data.status === 'SUCCEEDED') {
         var parseData = JSON.parse(el.data.output)
         if (parseData.Item) {
@@ -102,7 +103,7 @@ const OneEvent = () => {
             return check_data(login)
           }
         }).then((val) => {
-          console.log(val);
+          // console.log(val);
         });
       }
     });
@@ -145,12 +146,12 @@ const OneEvent = () => {
           }
           <div className="timings" id="view-ticket">
             <br />
-            <p className="date"><b>Date:</b> XX<sup>th</sup> - XX<sup>th</sup> of XX</p>
-            <p><b>Time:</b> XXpm onwards</p>
+            <p className="date"><b>Date:</b> 05<sup>th</sup> July, Tuesday</p>
+            <p><b>Time:</b> 4:30pm onwards</p>
           </div>
         </article>
         <article className="place">
-          <p className="badge bg-warning" id="view-register">Venue: <i className="fas fa-map-marker-alt"></i> <b>XX</b></p>
+          <p className="badge bg-warning" id="view-register">Venue: <i className="fas fa-map-marker-alt"></i> <b>Galeria</b></p>
         </article>
       </div>
     </div>
@@ -158,6 +159,9 @@ const OneEvent = () => {
       register ? <ModalRegister setRegister={setRegister} /> : null
     }
     <br />
+    {
+      getUserItem ? <ViewTicket getItem={getUserItem} /> : null
+    }
   </section>
 }
 

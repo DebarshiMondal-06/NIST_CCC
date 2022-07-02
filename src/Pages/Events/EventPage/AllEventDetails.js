@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useLocation } from 'react-router'
 import { Link } from 'react-router-dom';
 import { eventDetails } from '../../../Component/Data/eventDetails';
-import eventlogo from '../../../Images/event-card-image.png';
 
 
 const EventDetails = () => {

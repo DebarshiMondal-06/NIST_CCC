@@ -14,8 +14,8 @@ export const eventDetails = [
   },
   {
     id: 111,
-    name: 'Puzzle',
-    describe: `Game Lorem amet consectetur adipisicing elit. Porro eveniet incidunt, fugiat unde aspernatur pariatur aliquid obcaecati quaerat officiis dolor.`,
+    name: 'Brain Teaser',
+    describe: `It is always good to learn more about our brains and to exercise them!`,
     date: '26-10-2021',
     time: '',
     venue: 'Will Update',

@@ -12,9 +12,7 @@ const SelectBox = ({ errors, register }) => {
     { name: 'B.Tech - CE', value: 'b.tech - CE' },
   ];
   var year_wise = [
-    { name: '2020', value: '2020' },
     { name: '2021', value: '2021' },
-    { name: '2022', value: '2022' },
   ];
   var residence = [
     { name: 'Hostelite', value: 'hostelite' },
@@ -51,7 +49,16 @@ const SelectBox = ({ errors, register }) => {
       </select>
       {errors.branch && <span className="text-danger">This field is required</span>}
     </div>
-    <div className={`select--box-2 col-md-6 mb-4 ${(errors.residence) ? 'select--box-2--modify' : 'select--box-2'}`}>
+    <div className="col-md-6 mb-4">
+      <label className="form-label">Section (ex: A,B,C...)</label>
+      <input type="text" className="form-control" {...register("section", { required: true, pattern: /^[A-Z]$/ })} />
+      <p>{errors.section ? errors.section?.type === 'pattern' ? <span className="text-danger">Invaild section typed</span>
+        : <span className="text-danger">This field is required</span>
+        : null
+      }</p>
+    </div>
+   
+    <div className={`select--box-3 col-md-6 mb-4 ${(errors.section) ? 'select--box-3--modify' : 'select--box-3'}`}>
       <label className="form-label">Choose Residence</label>
       <i className="fas fa-sort-down"></i>
       <select className="form-control" {...register("residence", { required: true })} >
@@ -65,7 +72,7 @@ const SelectBox = ({ errors, register }) => {
       </select>
       {errors.residence && <span className="text-danger">This field is required</span>}
     </div>
-
+  
     <div className="col-md-6 mb-4">
       <label className="form-label">Parent's Contact</label>
       <input type="text" className="form-control" {...register("parent_contact", { required: true, pattern: /^[0-9]{10}$/ })} />
