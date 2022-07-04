@@ -37,7 +37,7 @@ const ViewData = () => {
         <p>Parent Contact: <span> {parent_contact}</span></p>
         <p>Registered On: <span> {moment(createdOn).format('LLL')}</span></p>
       </article>
-      {(address && address !== null) ? <p><b>Address: </b><span> {address}</span></p> : null}
+      {(address !== "undefined") ? <p><b>Address: </b><span> {address}</span></p> : null}
       < br />
     </Modal.Body>
     <Modal.Footer>
