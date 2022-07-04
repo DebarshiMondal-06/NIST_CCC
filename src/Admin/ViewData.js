@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps  */
-import moment from 'moment';
+// import moment from 'moment';
 import React, { useContext } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import { GlobalContext } from '../Context';
@@ -7,7 +7,7 @@ import { GlobalContext } from '../Context';
 const ViewData = () => {
   const { viewModal, setViewModal, viewData, setViewData } = useContext(GlobalContext);
   const { ticketId, emailId, contact, name, residence, rollno, address,
-    parent_contact, section, branch, batch, createdOn } = viewData;
+    parent_contact, section, branch, batch } = viewData;
 
   let handleClose = () => {
     setViewModal(false);
@@ -35,7 +35,6 @@ const ViewData = () => {
         <p>Rollno: <span> {rollno}</span></p>
         <p>Residence: <span> {residence}</span></p>
         <p>Parent Contact: <span> {parent_contact}</span></p>
-        <p>Registered On: <span> {moment(createdOn).format('LLL')}</span></p>
       </article>
       {(address !== "undefined") ? <p><b>Address: </b><span> {address}</span></p> : null}
       < br />
