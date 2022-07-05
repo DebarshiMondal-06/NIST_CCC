@@ -327,6 +327,18 @@ export const club_member_details = [
     github_link: `https://github.com/saswatsomyasahu`,
     year: '2020'
   },
+  {
+    id: 28,
+    firstname: 'Ashutosh',
+    fullname: 'Ashutosh Tripathy',
+    description: `Interest in coding & web development`,
+    desgination: 'Full stack developer',
+    member_type: 'Core member',
+    profile_img: 'https://avatars.githubusercontent.com/u/76964993?v=4',
+    linkedln_link: `www.linkedin.com/in/ashutosh-tripathy-9b05aa203`,
+    github_link: `https://github.com/AshutoshTripathy21`,
+    year: '2020'
+  },
 ];
 
 
@@ -340,6 +352,11 @@ export const admin_data = [
   {
     email: 'vikas.it.2019@nist.edu',
     name: 'Vikas Kumar',
+    year: 2019
+  },
+  {
+    email: 'pradiptabehera0423@gmail.com',
+    name: 'Pradipta Behera',
     year: 2019
   },
 ]
