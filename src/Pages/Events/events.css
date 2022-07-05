@@ -305,6 +305,7 @@
 
 .place{
   position: relative;
+  text-align: center;
 }
 .place p{
   margin: 0%;
@@ -340,8 +341,27 @@
 }
 
 
-
-
+.view-ticket .checkout{
+  position: relative;
+}
+.checkout .pla{
+  margin: 0%;
+  position: absolute;
+  bottom: 0%;
+  align-self: center;
+}
+.pla p{
+  margin: 0%;
+  border-radius: 0%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+  padding: 10px 25px;
+  font-family: 'Roboto Slab', serif;
+  color: #333;
+  text-decoration: none!important;
+}
 
 
 

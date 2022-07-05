@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 const ViewTicket = ({ getItem }) => {
@@ -8,7 +9,7 @@ const ViewTicket = ({ getItem }) => {
 
   return <section className="view--ticket" style={{ marginTop: '-5%' }}>
     <h1> User Details</h1>
-    <div style={{ marginTop: '-3%', padding: '20px' }} className="card shadow-lg">
+    <div style={{ marginTop: '-3%', padding: '20px' }} className="card shadow-lg checkout">
       <h2><b>Ticket ID:</b> <span>#{(items.ticketId && items.ticketId.S) ? items.ticketId.S : items.ticket}</span></h2>
       <main className="ticket--card--info">
         <div>
@@ -23,6 +24,14 @@ const ViewTicket = ({ getItem }) => {
           <p><b>Email: </b><span className="text-lowercase">{(items.emailId && items.emailId.S) ? items.emailId.S : items.emailId}</span></p>
         </div>
       </main>
+      <br />
+      <article className="pla">
+        <Link to={{ pathname: "https://ccc-game.tech" }} target="_blank">
+          <p className="badge bg-warning" id="view-register">
+            Checkout <i className='text-primary fas fa-rocket'></i>
+          </p>
+        </Link>
+      </article>
     </div>
   </section>
 }

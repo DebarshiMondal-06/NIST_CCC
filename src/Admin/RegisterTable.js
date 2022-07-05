@@ -63,7 +63,7 @@ const RegisterTable = () => {
     return items.name.toLowerCase().includes(input.toLowerCase());
   });
 
-
+  // filterData.sort((a, b) => a.name.localeCompare(b.name))
 
 
   return <section className="view--request table-responsive">
