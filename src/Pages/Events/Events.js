@@ -21,7 +21,7 @@ const Events = () => {
           {data[0].describe}
         </p>
         <article>
-          <Link to="/events-upcoming">
+          <Link to="/events-all">
             <button className="btn mt-2">
               Checkout...
             </button>

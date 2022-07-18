@@ -1,0 +1,208 @@
+service: nist-ccc-backend
+frameworkVersion: '3'
+plugins:
+  - serverless-iam-roles-per-function
+  - serverless-step-functions
+
+
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: ap-south-1
+  stage: dev
+  timeout: 20
+  
+
+package:
+  individually: true
+  patterns:
+    - '!yarn.lock'
+    - '!package.json'
+    - '!node_modules/**'
+
+
+functions:
+  admin_operation:
+    handler: functions/admin_operation.handler
+    name: nist-ccc-admin-operation
+    iamRoleStatements:
+      - Effect: "Allow"        
+        Action:
+          - dynamodb:GetItem        
+          - dynamodb:PutItem   
+          - dynamodb:Scan     
+        Resource: 
+          - { Fn::GetAtt: [userTable, Arn] }
+          - { Fn::GetAtt: [hiringTable, Arn] }
+    events:
+      - http:
+          path: /selection
+          method: POST
+          cors: true
+      - http: GET /delete_hiring
+      - http: GET /delete_user
+      - http: GET /get_hiring
+      - http: GET /geteventuser   
+  email_sender:
+    handler: functions/email_sender.handler
+    name: nist-ccc-email_sender
+    events:
+      - sqs:
+          arn: { Fn::GetAtt: [emailSQS, Arn] }
+    layers:
+      - arn:aws:lambda:ap-south-1:143151111018:layer:NodeMailer:1
+
+    
+      
+
+# nist ccc step function configure...
+stepFunctions:
+  stateMachines:
+    nist_ccc_stepFunctions:
+      type: EXPRESS
+      events:
+        - http: POST /
+      name: NIST_CCC_StepFunction
+      definition:
+        Comment: Nist CCC StepFunction.
+        StartAt: Contact or Register or Cred
+        States:
+          Contact or Register or Cred:
+            Type: Choice
+            Choices:
+              - Variable: $.inputs.check
+                StringMatches: register
+                Next: Check User Email
+              - Variable: $.inputs.check
+                StringMatches: contact
+                Next: Contact
+          Check User Email:
+            Type: Task
+            Resource: arn:aws:states:::dynamodb:getItem
+            Parameters:
+              TableName: Register_Event_User 
+              Key:
+                emailId:
+                  S.$: $.inputs.email
+            ResultPath: $.Items
+            Next: Filter Operation
+          Filter Operation:
+            Type: Choice
+            Default: Get User Data
+            Choices:
+              - Variable: $.inputs.verify
+                IsPresent: true
+                Next: Verify & Send Data
+              - Not:
+                  Variable: $.Items.Item
+                  IsPresent: true
+                Next: Register User
+          Verify & Send Data: 
+            Type: Pass
+            OutputPath: $.Items
+            End: true
+          Register User:
+            Type: Task
+            Resource: arn:aws:states:::dynamodb:putItem
+            Parameters:
+              TableName: Regitser_Event_User
+              Item:
+                emailId:
+                  S.$: $.inputs.email
+                name:
+                  S.$: $.inputs.name
+                branch:
+                  S.$: $.inputs.branch
+                rollno:
+                  S.$: $.inputs.rollno
+                batch:
+                  S.$: $.inputs.batch
+                contact:
+                  S.$: $.inputs.contact
+                ticketId:
+                  S.$: $.inputs.ticket
+                residence:
+                  S.$: $.inputs.residence
+                parent_contact:
+                  S.$: $.inputs.parent_contact
+                address:
+                  S.$: $.inputs.address
+                section:
+                  S.$: $.inputs.section
+            ResultPath: $.Items
+            Next: Email Sender
+          Email Sender:
+            Type: Task
+            Resource: arn:aws:states:::sqs:sendMessage
+            Parameters:
+              MessageBody.$: $.inputs
+              QueueUrl: !Ref emailSQS
+            End: true
+          Get User Data: 
+            Type: Pass
+            OutputPath: $.Items
+            End: true
+          Contact:
+            Type: Parallel
+            End: true
+            Branches:
+              - StartAt: Contact Email Sender
+                States:
+                  Contact Email Sender:
+                    Type: Task
+                    Resource: arn:aws:states:::sqs:sendMessage
+                    Parameters:
+                      MessageBody.$: $
+                      QueueUrl: !Ref emailSQS
+                    End: true
+              - StartAt: Save Contact Data
+                States:
+                  Save Contact Data:
+                    Type: Task
+                    Resource: arn:aws:states:::dynamodb:putItem
+                    Parameters:
+                      TableName: NIST_CCC_Contact
+                      Item:
+                        emailId:
+                          S.$: $.inputs.email
+                        fullname:
+                          S.$: $.inputs.fullname
+                        message:
+                          S.$: $.inputs.message
+                    OutputPath: $.SdkResponseMetadata
+                    End: true
+      dependsOn:
+        - userTable
+      
+  
+      
+# other aws resources for nist ccc
+resources:
+  Resources:
+    emailSQS:
+      Type: AWS::SQS::Queue
+      Properties: 
+        QueueName: "Email_Trigger"
+    userTable:
+      Type: 'AWS::DynamoDB::Table'
+      Properties:
+        TableName: Register_Event_User  
+        AttributeDefinitions:
+          - AttributeName: "emailId"
+            AttributeType: "S"
+        KeySchema:
+          - AttributeName: "emailId"
+            KeyType: "HASH"
+        BillingMode: PAY_PER_REQUEST
+    hiringTable:
+      Type: 'AWS::DynamoDB::Table'
+      Properties:
+        TableName: Hiring_Table  
+        AttributeDefinitions:
+          - AttributeName: "emailId"
+            AttributeType: "S"
+        KeySchema:
+          - AttributeName: "emailId"
+            KeyType: "HASH"
+        BillingMode: PAY_PER_REQUEST
