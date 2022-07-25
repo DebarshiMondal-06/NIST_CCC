@@ -29,12 +29,12 @@ const OneEvent = () => {
       }
     };
     var configure_inputs = {
-      stateMachineArn: 'arn:aws:states:ap-south-1:143151111018:stateMachine:NIST_CCC_MACHINE',
+      stateMachineArn: 'arn:aws:states:ap-south-1:143151111018:stateMachine:NIST_CCC_StepFunction',
       input: JSON.stringify(configure)
     };
     axios({
       method: 'POST',
-      url: 'https://6svbsfa95h.execute-api.ap-south-1.amazonaws.com/dev',
+      url: 'https://blp5ln5fp8.execute-api.ap-south-1.amazonaws.com/dev',
       data: JSON.stringify(configure_inputs, null, 2)
     }).then((el) => {
       console.log(el);

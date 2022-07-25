@@ -15,6 +15,6 @@
  ```
   git add .
   git commit -m <message>
-  git push origin <your_branch_name>
+  git push origin <your_branch_name>˚˚˚ˇ
  ```
  - create a pull request from github console
