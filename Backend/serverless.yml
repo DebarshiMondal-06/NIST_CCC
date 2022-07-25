@@ -1,4 +1,4 @@
-service: nist-ccc-backend
+service: nist-ccc-backend-deploy
 frameworkVersion: '3'
 plugins:
   - serverless-iam-roles-per-function
@@ -51,7 +51,7 @@ functions:
       - sqs:
           arn: { Fn::GetAtt: [emailSQS, Arn] }
     layers:
-      - arn:aws:lambda:ap-south-1:143151111018:layer:NodeMailer:1
+      - arn:aws:lambda:ap-south-1:${aws:accountId}:layer:NodeMailer:1
 
     
       
@@ -64,6 +64,12 @@ stepFunctions:
       events:
         - http: POST /
       name: NIST_CCC_StepFunction
+      role: { Fn::GetAtt: [stepFunctionRole, Arn] }
+      loggingConfig:
+        level: ALL
+        includeExecutionData: true
+        destinations: 
+          - Fn::GetAtt: [stepFunctionLogs, Arn]
       definition:
         Comment: Nist CCC StepFunction.
         StartAt: Contact or Register or Cred
@@ -180,10 +186,36 @@ stepFunctions:
 # other aws resources for nist ccc
 resources:
   Resources:
+    stepFunctionLogs: 
+      Type: AWS::Logs::LogGroup
+      Properties: 
+        LogGroupName: Step_Functions_Logs
+        RetentionInDays: 7
     emailSQS:
       Type: AWS::SQS::Queue
       Properties: 
         QueueName: "Email_Trigger"
+    stepFunctionRole:
+      Type: 'AWS::IAM::Role'
+      Properties:
+        AssumeRolePolicyDocument:
+          Version: "2012-10-17"
+          Statement:
+            - Effect: Allow
+              Principal:
+                Service:
+                  - states.amazonaws.com
+              Action:
+                - 'sts:AssumeRole'
+        RoleName: nist_stepfunction_roles
+        Policies:
+          - PolicyName: stepFunctionPolicy
+            PolicyDocument:
+              Version: "2012-10-17"
+              Statement:
+                - Effect: Allow
+                  Action: '*'
+                  Resource: '*'
     userTable:
       Type: 'AWS::DynamoDB::Table'
       Properties:
