@@ -62,7 +62,13 @@ stepFunctions:
     nist_ccc_stepFunctions:
       type: EXPRESS
       events:
-        - http: POST /
+        - http:
+            path: /
+            method: POST
+            cors: true
+            integration: aws
+            action: StartSyncExecution
+
       name: NIST_CCC_StepFunction
       role: { Fn::GetAtt: [stepFunctionRole, Arn] }
       loggingConfig:
@@ -112,7 +118,7 @@ stepFunctions:
             Type: Task
             Resource: arn:aws:states:::dynamodb:putItem
             Parameters:
-              TableName: Regitser_Event_User
+              TableName: Register_Event_User
               Item:
                 emailId:
                   S.$: $.inputs.email

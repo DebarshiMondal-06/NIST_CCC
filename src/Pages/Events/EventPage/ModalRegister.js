@@ -35,17 +35,16 @@ const ModalRegister = ({ setRegister }) => {
         section: `${section}`, parent_contact: `${parent_contact}`, createdOn: `${moment().format()}`
       }
     };
-    var configure_inputs = {
-      stateMachineArn: 'arn:aws:states:ap-south-1:143151111018:stateMachine:NIST_CCC_StepFunction',
-      input: JSON.stringify(configure)
-    };
+    // var configure_inputs = {
+    //   stateMachineArn: 'arn:aws:states:ap-south-1:143151111018:stateMachine:NIST_CCC_StepFunction',
+    //   input: JSON.stringify(configure)
+    // };
 
-    console.log(configure_inputs);
 
     axios({
       method: 'POST',
-      url: ' https://35mir320qd.execute-api.ap-south-1.amazonaws.com/dev',
-      data: configure_inputs
+      url: 'https://cpa0xpul0a.execute-api.ap-south-1.amazonaws.com/dev/',
+      data: JSON.stringify(configure)
     }).then((el) => {
       setLoad(false);
       if (el.data && el.data.status === 'SUCCEEDED') {
@@ -127,11 +126,11 @@ const ModalRegister = ({ setRegister }) => {
             }
 
             <article style={{ float: 'right', display: 'flex', gap: "1em" }}>
-              <button className="btn btn-success" style={{ width: '150px' }}>
+              {/* <button className="btn btn-success" style={{ width: '150px' }}>
                 {
                   load ? <ProcessSpinner /> : 'Submit'
                 }
-              </button> 
+              </button>  */}
               <button type="button" onClick={() => window.location.reload()} className="btn btn-danger">Close</button>
             </article>
           </form>

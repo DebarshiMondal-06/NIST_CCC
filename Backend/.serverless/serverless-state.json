@@ -202,7 +202,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/nist-ccc-backend-deploy/dev/1658767816704-2022-07-25T16:50:16.704Z/admin_operation.zip"
+                "S3Key": "serverless/nist-ccc-backend-deploy/dev/1658828536022-2022-07-26T09:42:16.022Z/admin_operation.zip"
               },
               "Handler": "functions/admin_operation.handler",
               "Runtime": "nodejs14.x",
@@ -228,7 +228,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/nist-ccc-backend-deploy/dev/1658767816704-2022-07-25T16:50:16.704Z/email_sender.zip"
+                "S3Key": "serverless/nist-ccc-backend-deploy/dev/1658828536022-2022-07-26T09:42:16.022Z/email_sender.zip"
               },
               "Handler": "functions/email_sender.handler",
               "Runtime": "nodejs14.x",
@@ -274,7 +274,7 @@
             "Properties": {
               "DefinitionString": {
                 "Fn::Sub": [
-                  "{\n  \"Comment\": \"Nist CCC StepFunction.\",\n  \"StartAt\": \"Contact or Register or Cred\",\n  \"States\": {\n    \"Contact or Register or Cred\": {\n      \"Type\": \"Choice\",\n      \"Choices\": [\n        {\n          \"Variable\": \"$.inputs.check\",\n          \"StringMatches\": \"register\",\n          \"Next\": \"Check User Email\"\n        },\n        {\n          \"Variable\": \"$.inputs.check\",\n          \"StringMatches\": \"contact\",\n          \"Next\": \"Contact\"\n        }\n      ]\n    },\n    \"Check User Email\": {\n      \"Type\": \"Task\",\n      \"Resource\": \"arn:aws:states:::dynamodb:getItem\",\n      \"Parameters\": {\n        \"TableName\": \"Register_Event_User\",\n        \"Key\": {\n          \"emailId\": {\n            \"S.$\": \"$.inputs.email\"\n          }\n        }\n      },\n      \"ResultPath\": \"$.Items\",\n      \"Next\": \"Filter Operation\"\n    },\n    \"Filter Operation\": {\n      \"Type\": \"Choice\",\n      \"Default\": \"Get User Data\",\n      \"Choices\": [\n        {\n          \"Variable\": \"$.inputs.verify\",\n          \"IsPresent\": true,\n          \"Next\": \"Verify & Send Data\"\n        },\n        {\n          \"Not\": {\n            \"Variable\": \"$.Items.Item\",\n            \"IsPresent\": true\n          },\n          \"Next\": \"Register User\"\n        }\n      ]\n    },\n    \"Verify & Send Data\": {\n      \"Type\": \"Pass\",\n      \"OutputPath\": \"$.Items\",\n      \"End\": true\n    },\n    \"Register User\": {\n      \"Type\": \"Task\",\n      \"Resource\": \"arn:aws:states:::dynamodb:putItem\",\n      \"Parameters\": {\n        \"TableName\": \"Regitser_Event_User\",\n        \"Item\": {\n          \"emailId\": {\n            \"S.$\": \"$.inputs.email\"\n          },\n          \"name\": {\n            \"S.$\": \"$.inputs.name\"\n          },\n          \"branch\": {\n            \"S.$\": \"$.inputs.branch\"\n          },\n          \"rollno\": {\n            \"S.$\": \"$.inputs.rollno\"\n          },\n          \"batch\": {\n            \"S.$\": \"$.inputs.batch\"\n          },\n          \"contact\": {\n            \"S.$\": \"$.inputs.contact\"\n          },\n          \"ticketId\": {\n            \"S.$\": \"$.inputs.ticket\"\n          },\n          \"residence\": {\n            \"S.$\": \"$.inputs.residence\"\n          },\n          \"parent_contact\": {\n            \"S.$\": \"$.inputs.parent_contact\"\n          },\n          \"address\": {\n            \"S.$\": \"$.inputs.address\"\n          },\n          \"section\": {\n            \"S.$\": \"$.inputs.section\"\n          }\n        }\n      },\n      \"ResultPath\": \"$.Items\",\n      \"Next\": \"Email Sender\"\n    },\n    \"Email Sender\": {\n      \"Type\": \"Task\",\n      \"Resource\": \"arn:aws:states:::sqs:sendMessage\",\n      \"Parameters\": {\n        \"MessageBody.$\": \"$.inputs\",\n        \"QueueUrl\": \"${a15dd10806aa7b6b8464199dd1fc9b15}\"\n      },\n      \"End\": true\n    },\n    \"Get User Data\": {\n      \"Type\": \"Pass\",\n      \"OutputPath\": \"$.Items\",\n      \"End\": true\n    },\n    \"Contact\": {\n      \"Type\": \"Parallel\",\n      \"End\": true,\n      \"Branches\": [\n        {\n          \"StartAt\": \"Contact Email Sender\",\n          \"States\": {\n            \"Contact Email Sender\": {\n              \"Type\": \"Task\",\n              \"Resource\": \"arn:aws:states:::sqs:sendMessage\",\n              \"Parameters\": {\n                \"MessageBody.$\": \"$\",\n                \"QueueUrl\": \"${a15dd10806aa7b6b8464199dd1fc9b15}\"\n              },\n              \"End\": true\n            }\n          }\n        },\n        {\n          \"StartAt\": \"Save Contact Data\",\n          \"States\": {\n            \"Save Contact Data\": {\n              \"Type\": \"Task\",\n              \"Resource\": \"arn:aws:states:::dynamodb:putItem\",\n              \"Parameters\": {\n                \"TableName\": \"NIST_CCC_Contact\",\n                \"Item\": {\n                  \"emailId\": {\n                    \"S.$\": \"$.inputs.email\"\n                  },\n                  \"fullname\": {\n                    \"S.$\": \"$.inputs.fullname\"\n                  },\n                  \"message\": {\n                    \"S.$\": \"$.inputs.message\"\n                  }\n                }\n              },\n              \"OutputPath\": \"$.SdkResponseMetadata\",\n              \"End\": true\n            }\n          }\n        }\n      ]\n    }\n  }\n}",
+                  "{\n  \"Comment\": \"Nist CCC StepFunction.\",\n  \"StartAt\": \"Contact or Register or Cred\",\n  \"States\": {\n    \"Contact or Register or Cred\": {\n      \"Type\": \"Choice\",\n      \"Choices\": [\n        {\n          \"Variable\": \"$.inputs.check\",\n          \"StringMatches\": \"register\",\n          \"Next\": \"Check User Email\"\n        },\n        {\n          \"Variable\": \"$.inputs.check\",\n          \"StringMatches\": \"contact\",\n          \"Next\": \"Contact\"\n        }\n      ]\n    },\n    \"Check User Email\": {\n      \"Type\": \"Task\",\n      \"Resource\": \"arn:aws:states:::dynamodb:getItem\",\n      \"Parameters\": {\n        \"TableName\": \"Register_Event_User\",\n        \"Key\": {\n          \"emailId\": {\n            \"S.$\": \"$.inputs.email\"\n          }\n        }\n      },\n      \"ResultPath\": \"$.Items\",\n      \"Next\": \"Filter Operation\"\n    },\n    \"Filter Operation\": {\n      \"Type\": \"Choice\",\n      \"Default\": \"Get User Data\",\n      \"Choices\": [\n        {\n          \"Variable\": \"$.inputs.verify\",\n          \"IsPresent\": true,\n          \"Next\": \"Verify & Send Data\"\n        },\n        {\n          \"Not\": {\n            \"Variable\": \"$.Items.Item\",\n            \"IsPresent\": true\n          },\n          \"Next\": \"Register User\"\n        }\n      ]\n    },\n    \"Verify & Send Data\": {\n      \"Type\": \"Pass\",\n      \"OutputPath\": \"$.Items\",\n      \"End\": true\n    },\n    \"Register User\": {\n      \"Type\": \"Task\",\n      \"Resource\": \"arn:aws:states:::dynamodb:putItem\",\n      \"Parameters\": {\n        \"TableName\": \"Register_Event_User\",\n        \"Item\": {\n          \"emailId\": {\n            \"S.$\": \"$.inputs.email\"\n          },\n          \"name\": {\n            \"S.$\": \"$.inputs.name\"\n          },\n          \"branch\": {\n            \"S.$\": \"$.inputs.branch\"\n          },\n          \"rollno\": {\n            \"S.$\": \"$.inputs.rollno\"\n          },\n          \"batch\": {\n            \"S.$\": \"$.inputs.batch\"\n          },\n          \"contact\": {\n            \"S.$\": \"$.inputs.contact\"\n          },\n          \"ticketId\": {\n            \"S.$\": \"$.inputs.ticket\"\n          },\n          \"residence\": {\n            \"S.$\": \"$.inputs.residence\"\n          },\n          \"parent_contact\": {\n            \"S.$\": \"$.inputs.parent_contact\"\n          },\n          \"address\": {\n            \"S.$\": \"$.inputs.address\"\n          },\n          \"section\": {\n            \"S.$\": \"$.inputs.section\"\n          }\n        }\n      },\n      \"ResultPath\": \"$.Items\",\n      \"Next\": \"Email Sender\"\n    },\n    \"Email Sender\": {\n      \"Type\": \"Task\",\n      \"Resource\": \"arn:aws:states:::sqs:sendMessage\",\n      \"Parameters\": {\n        \"MessageBody.$\": \"$.inputs\",\n        \"QueueUrl\": \"${a15dd10806aa7b6b8464199dd1fc9b15}\"\n      },\n      \"End\": true\n    },\n    \"Get User Data\": {\n      \"Type\": \"Pass\",\n      \"OutputPath\": \"$.Items\",\n      \"End\": true\n    },\n    \"Contact\": {\n      \"Type\": \"Parallel\",\n      \"End\": true,\n      \"Branches\": [\n        {\n          \"StartAt\": \"Contact Email Sender\",\n          \"States\": {\n            \"Contact Email Sender\": {\n              \"Type\": \"Task\",\n              \"Resource\": \"arn:aws:states:::sqs:sendMessage\",\n              \"Parameters\": {\n                \"MessageBody.$\": \"$\",\n                \"QueueUrl\": \"${a15dd10806aa7b6b8464199dd1fc9b15}\"\n              },\n              \"End\": true\n            }\n          }\n        },\n        {\n          \"StartAt\": \"Save Contact Data\",\n          \"States\": {\n            \"Save Contact Data\": {\n              \"Type\": \"Task\",\n              \"Resource\": \"arn:aws:states:::dynamodb:putItem\",\n              \"Parameters\": {\n                \"TableName\": \"NIST_CCC_Contact\",\n                \"Item\": {\n                  \"emailId\": {\n                    \"S.$\": \"$.inputs.email\"\n                  },\n                  \"fullname\": {\n                    \"S.$\": \"$.inputs.fullname\"\n                  },\n                  \"message\": {\n                    \"S.$\": \"$.inputs.message\"\n                  }\n                }\n              },\n              \"OutputPath\": \"$.SdkResponseMetadata\",\n              \"End\": true\n            }\n          }\n        }\n      ]\n    }\n  }\n}",
                   {
                     "a15dd10806aa7b6b8464199dd1fc9b15": {
                       "Ref": "emailSQS"
@@ -673,7 +673,7 @@
               "AdminUnderscoreoperationLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1658767814672": {
+          "ApiGatewayDeployment1658828533697": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -787,60 +787,97 @@
                       {
                         "Ref": "AWS::Region"
                       },
-                      ":states:action/StartExecution"
+                      ":states:action/StartSyncExecution"
                     ]
                   ]
                 },
-                "PassthroughBehavior": "NEVER",
-                "RequestTemplates": {
-                  "application/json": {
-                    "Fn::Sub": [
-                      "\n#set( $body = $util.escapeJavaScript($input.json('$')).replaceAll(\"\\\\'\", \"'\") )\n{\"input\": \"$body\", \"name\": \"$context.requestId\", \"stateMachineArn\":\"${StateMachineArn}\"}",
-                      {
-                        "StateMachineArn": {
-                          "Ref": "NISTUnderscoreCCCUnderscoreStepFunction"
-                        }
-                      }
-                    ]
-                  },
-                  "application/x-www-form-urlencoded": {
-                    "Fn::Sub": [
-                      "\n#set( $body = $util.escapeJavaScript($input.json('$')).replaceAll(\"\\\\'\", \"'\") )\n{\"input\": \"$body\", \"name\": \"$context.requestId\", \"stateMachineArn\":\"${StateMachineArn}\"}",
-                      {
-                        "StateMachineArn": {
-                          "Ref": "NISTUnderscoreCCCUnderscoreStepFunction"
-                        }
-                      }
-                    ]
-                  }
-                },
+                "PassthroughBehavior": "WHEN_NO_TEMPLATES",
+                "RequestTemplates": {},
                 "IntegrationResponses": [
                   {
                     "StatusCode": 200,
                     "SelectionPattern": 200,
-                    "ResponseParameters": {},
+                    "ResponseParameters": {
+                      "method.response.header.Access-Control-Allow-Origin": "'*'"
+                    },
                     "ResponseTemplates": {}
                   },
                   {
                     "StatusCode": 400,
                     "SelectionPattern": 400,
-                    "ResponseParameters": {},
+                    "ResponseParameters": {
+                      "method.response.header.Access-Control-Allow-Origin": "'*'"
+                    },
                     "ResponseTemplates": {}
                   }
                 ]
               },
               "MethodResponses": [
                 {
-                  "ResponseParameters": {},
+                  "ResponseParameters": {
+                    "method.response.header.Access-Control-Allow-Origin": "'*'"
+                  },
                   "ResponseModels": {},
                   "StatusCode": 200
                 },
                 {
-                  "ResponseParameters": {},
+                  "ResponseParameters": {
+                    "method.response.header.Access-Control-Allow-Origin": "'*'"
+                  },
                   "ResponseModels": {},
                   "StatusCode": 400
                 }
               ]
+            }
+          },
+          "ApiGatewayMethodOptions": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "AuthorizationType": "NONE",
+              "HttpMethod": "OPTIONS",
+              "MethodResponses": [
+                {
+                  "StatusCode": "200",
+                  "ResponseParameters": {
+                    "method.response.header.Access-Control-Allow-Origin": true,
+                    "method.response.header.Access-Control-Allow-Headers": true,
+                    "method.response.header.Access-Control-Allow-Methods": true,
+                    "method.response.header.Access-Control-Allow-Credentials": true
+                  },
+                  "ResponseModels": {}
+                }
+              ],
+              "RequestParameters": {},
+              "Integration": {
+                "Type": "MOCK",
+                "RequestTemplates": {
+                  "application/json": "{statusCode:200}"
+                },
+                "ContentHandling": "CONVERT_TO_TEXT",
+                "IntegrationResponses": [
+                  {
+                    "StatusCode": "200",
+                    "ResponseParameters": {
+                      "method.response.header.Access-Control-Allow-Origin": "'*'",
+                      "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'",
+                      "method.response.header.Access-Control-Allow-Credentials": "'false'"
+                    },
+                    "ResponseTemplates": {
+                      "application/json": ""
+                    }
+                  }
+                ]
+              },
+              "ResourceId": {
+                "Fn::GetAtt": [
+                  "ApiGatewayRestApi",
+                  "RootResourceId"
+                ]
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
             }
           },
           "ApigatewayToStepFunctionsRole": {
@@ -867,7 +904,8 @@
                       {
                         "Effect": "Allow",
                         "Action": [
-                          "states:StartExecution"
+                          "states:StartExecution",
+                          "states:StartSyncExecution"
                         ],
                         "Resource": "*"
                       }
@@ -1401,7 +1439,7 @@
           "!node_modules/**"
         ],
         "artifactsS3KeyDirname": "serverless/nist-ccc-backend-deploy/dev/code-artifacts",
-        "artifactDirectoryName": "serverless/nist-ccc-backend-deploy/dev/1658767816704-2022-07-25T16:50:16.704Z"
+        "artifactDirectoryName": "serverless/nist-ccc-backend-deploy/dev/1658828536022-2022-07-26T09:42:16.022Z"
       },
       "functions": {
         "$ref": "$[\"service\"][\"functions\"]"
@@ -1412,7 +1450,31 @@
             "type": "EXPRESS",
             "events": [
               {
-                "http": "POST /"
+                "http": {
+                  "path": "",
+                  "method": "post",
+                  "cors": {
+                    "origins": [
+                      "*"
+                    ],
+                    "origin": "*",
+                    "methods": [
+                      "OPTIONS",
+                      "POST"
+                    ],
+                    "headers": [
+                      "Content-Type",
+                      "X-Amz-Date",
+                      "Authorization",
+                      "X-Api-Key",
+                      "X-Amz-Security-Token",
+                      "X-Amz-User-Agent"
+                    ],
+                    "allowCredentials": false
+                  },
+                  "integration": "aws",
+                  "action": "StartSyncExecution"
+                }
               }
             ],
             "name": "NIST_CCC_StepFunction",
@@ -1494,7 +1556,7 @@
                   "Type": "Task",
                   "Resource": "arn:aws:states:::dynamodb:putItem",
                   "Parameters": {
-                    "TableName": "Regitser_Event_User",
+                    "TableName": "Register_Event_User",
                     "Item": {
                       "emailId": {
                         "S.$": "$.inputs.email"
@@ -1616,7 +1678,7 @@
   },
   "package": {
     "individually": true,
-    "artifactDirectoryName": "serverless/nist-ccc-backend-deploy/dev/1658767816704-2022-07-25T16:50:16.704Z",
+    "artifactDirectoryName": "serverless/nist-ccc-backend-deploy/dev/1658828536022-2022-07-26T09:42:16.022Z",
     "artifact": ""
   }
 }

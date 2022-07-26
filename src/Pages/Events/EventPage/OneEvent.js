@@ -28,16 +28,15 @@ const OneEvent = () => {
         check: "register", email: `${val.toLowerCase().trim()}`, verify: true
       }
     };
-    var configure_inputs = {
-      stateMachineArn: 'arn:aws:states:ap-south-1:143151111018:stateMachine:NIST_CCC_StepFunction',
-      input: JSON.stringify(configure)
-    };
+    // var configure_inputs = {
+    //   // stateMachineArn: 'arn:aws:states:ap-south-1:143151111018:stateMachine:NIST_CCC_StepFunction',
+    //   input: configure.inputs
+    // };
     axios({
       method: 'POST',
-      url: 'https://blp5ln5fp8.execute-api.ap-south-1.amazonaws.com/dev',
-      data: JSON.stringify(configure_inputs, null, 2)
+      url: 'https://cpa0xpul0a.execute-api.ap-south-1.amazonaws.com/dev/',
+      data: JSON.stringify(configure)
     }).then((el) => {
-      console.log(el);
       if (el.data && el.data.status === 'SUCCEEDED') {
         var parseData = JSON.parse(el.data.output)
         if (parseData.Item) {
