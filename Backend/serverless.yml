@@ -50,8 +50,8 @@ functions:
     events:
       - sqs:
           arn: { Fn::GetAtt: [emailSQS, Arn] }
-    layers:
-      - arn:aws:lambda:ap-south-1:${aws:accountId}:layer:NodeMailer:1
+    # layers:
+    #   - arn:aws:lambda:ap-south-1:${aws:accountId}:layer:NodeMailer:1
 
     
       

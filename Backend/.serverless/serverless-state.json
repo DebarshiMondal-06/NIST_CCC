@@ -202,7 +202,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/nist-ccc-backend-deploy/dev/1658828536022-2022-07-26T09:42:16.022Z/admin_operation.zip"
+                "S3Key": "serverless/nist-ccc-backend-deploy/dev/1659162324332-2022-07-30T06:25:24.332Z/admin_operation.zip"
               },
               "Handler": "functions/admin_operation.handler",
               "Runtime": "nodejs14.x",
@@ -228,7 +228,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/nist-ccc-backend-deploy/dev/1658828536022-2022-07-26T09:42:16.022Z/email_sender.zip"
+                "S3Key": "serverless/nist-ccc-backend-deploy/dev/1659162324332-2022-07-30T06:25:24.332Z/email_sender.zip"
               },
               "Handler": "functions/email_sender.handler",
               "Runtime": "nodejs14.x",
@@ -240,33 +240,30 @@
                   "IamRoleLambdaExecution",
                   "Arn"
                 ]
-              },
-              "Layers": [
-                "arn:aws:lambda:ap-south-1:143151111018:layer:NodeMailer:1"
-              ]
+              }
             },
             "DependsOn": [
               "EmailUnderscoresenderLogGroup"
             ]
           },
-          "AdminUnderscoreoperationLambdaVersiont1e9obI24TfrsIhuJIBwrKMfwrlZrk3EdE6N3vzSU": {
+          "AdminUnderscoreoperationLambdaVersionlBkrg3Kfd09CTxrr8f4yrTYpJ8HE6nLpA2gZACbLVko": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "AdminUnderscoreoperationLambdaFunction"
               },
-              "CodeSha256": "KhPZYlW9LcApz9I7iSwlEKlbX3OT03MWdAiMKl3wop0="
+              "CodeSha256": "H4JBjLVZ8uQZzUcZ6zSIriQUMPp/J6syESmsioPhMlI="
             }
           },
-          "EmailUnderscoresenderLambdaVersion16jX9G4dVDBQAfyU3HmM59d11E4WxSAHW5Rsuj4Wvs": {
+          "EmailUnderscoresenderLambdaVersiondQFyx6Ig9qGALRfNTlyy3eGiPEhCjvKLZFquoPg": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "EmailUnderscoresenderLambdaFunction"
               },
-              "CodeSha256": "KhPZYlW9LcApz9I7iSwlEKlbX3OT03MWdAiMKl3wop0="
+              "CodeSha256": "H4JBjLVZ8uQZzUcZ6zSIriQUMPp/J6syESmsioPhMlI="
             }
           },
           "NISTUnderscoreCCCUnderscoreStepFunction": {
@@ -426,7 +423,7 @@
                     "StatusCode": "200",
                     "ResponseParameters": {
                       "method.response.header.Access-Control-Allow-Origin": "'*'",
-                      "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                      "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,X-Amzn-Trace-Id'",
                       "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
                     },
                     "ResponseTemplates": {
@@ -673,7 +670,7 @@
               "AdminUnderscoreoperationLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1658828533697": {
+          "ApiGatewayDeployment1659162321736": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -1106,7 +1103,7 @@
           "AdminUnderscoreoperationLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "AdminUnderscoreoperationLambdaVersiont1e9obI24TfrsIhuJIBwrKMfwrlZrk3EdE6N3vzSU"
+              "Ref": "AdminUnderscoreoperationLambdaVersionlBkrg3Kfd09CTxrr8f4yrTYpJ8HE6nLpA2gZACbLVko"
             },
             "Export": {
               "Name": "sls-nist-ccc-backend-deploy-dev-AdminUnderscoreoperationLambdaFunctionQualifiedArn"
@@ -1115,7 +1112,7 @@
           "EmailUnderscoresenderLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "EmailUnderscoresenderLambdaVersion16jX9G4dVDBQAfyU3HmM59d11E4WxSAHW5Rsuj4Wvs"
+              "Ref": "EmailUnderscoresenderLambdaVersiondQFyx6Ig9qGALRfNTlyy3eGiPEhCjvKLZFquoPg"
             },
             "Export": {
               "Name": "sls-nist-ccc-backend-deploy-dev-EmailUnderscoresenderLambdaFunctionQualifiedArn"
@@ -1273,7 +1270,8 @@
                   "Authorization",
                   "X-Api-Key",
                   "X-Amz-Security-Token",
-                  "X-Amz-User-Agent"
+                  "X-Amz-User-Agent",
+                  "X-Amzn-Trace-Id"
                 ],
                 "allowCredentials": false
               },
@@ -1294,13 +1292,13 @@
           }
         ],
         "package": {
-          "artifact": "/Users/debarshimondal/Documents/NIST_CCC/Backend/.serverless/admin_operation.zip"
+          "artifact": "D:\\CCC\\NIST_CCC\\Backend\\.serverless\\admin_operation.zip"
         },
         "memory": 1024,
         "timeout": 20,
         "runtime": "nodejs14.x",
         "vpc": {},
-        "versionLogicalId": "AdminUnderscoreoperationLambdaVersiont1e9obI24TfrsIhuJIBwrKMfwrlZrk3EdE6N3vzSU"
+        "versionLogicalId": "AdminUnderscoreoperationLambdaVersionlBkrg3Kfd09CTxrr8f4yrTYpJ8HE6nLpA2gZACbLVko"
       },
       "email_sender": {
         "handler": "functions/email_sender.handler",
@@ -1314,17 +1312,14 @@
             }
           }
         ],
-        "layers": {
-          "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"EmailUnderscoresenderLambdaFunction\"][\"Properties\"][\"Layers\"]"
-        },
         "package": {
-          "artifact": "/Users/debarshimondal/Documents/NIST_CCC/Backend/.serverless/email_sender.zip"
+          "artifact": "D:\\CCC\\NIST_CCC\\Backend\\.serverless\\email_sender.zip"
         },
         "memory": 1024,
         "timeout": 20,
         "runtime": "nodejs14.x",
         "vpc": {},
-        "versionLogicalId": "EmailUnderscoresenderLambdaVersion16jX9G4dVDBQAfyU3HmM59d11E4WxSAHW5Rsuj4Wvs"
+        "versionLogicalId": "EmailUnderscoresenderLambdaVersiondQFyx6Ig9qGALRfNTlyy3eGiPEhCjvKLZFquoPg"
       }
     },
     "resources": {
@@ -1439,7 +1434,7 @@
           "!node_modules/**"
         ],
         "artifactsS3KeyDirname": "serverless/nist-ccc-backend-deploy/dev/code-artifacts",
-        "artifactDirectoryName": "serverless/nist-ccc-backend-deploy/dev/1658828536022-2022-07-26T09:42:16.022Z"
+        "artifactDirectoryName": "serverless/nist-ccc-backend-deploy/dev/1659162324332-2022-07-30T06:25:24.332Z"
       },
       "functions": {
         "$ref": "$[\"service\"][\"functions\"]"
@@ -1678,7 +1673,7 @@
   },
   "package": {
     "individually": true,
-    "artifactDirectoryName": "serverless/nist-ccc-backend-deploy/dev/1658828536022-2022-07-26T09:42:16.022Z",
+    "artifactDirectoryName": "serverless/nist-ccc-backend-deploy/dev/1659162324332-2022-07-30T06:25:24.332Z",
     "artifact": ""
   }
 }
