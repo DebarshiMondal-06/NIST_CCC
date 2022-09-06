@@ -144,17 +144,17 @@ const ModalRegister = ({ setRegister }) => {
             }
 
             <article style={{ float: 'right', display: 'flex', gap: "1em" }}>
-              {/* <button className="btn btn-success" style={{ width: '150px' }}>
+              <button className="btn btn-success" style={{ width: '150px' }}>
                 {
                   load ? <ProcessSpinner /> : 'Submit'
                 }
-              </button>  */}
+              </button> 
               <button type="button" onClick={() => window.location.reload()} className="btn btn-danger">Close</button>
             </article>
           </form>
         </article>
         <br />
-        <p className="badge p-3 bg-warning" style={{ fontSize: 20 }}>🥲 Registartion has Closed 👋 </p>
+        {/* <p className="badge p-3 bg-warning" style={{ fontSize: 20 }}>🥲 Registartion has Closed 👋 </p> */}
       </main>
     </article>
   </>
