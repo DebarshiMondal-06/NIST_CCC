@@ -1,13 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState } from 'react';
-import { GlobalContext } from '../../../Context';
+import { GlobalContext } from '../../Context';
 import randomstring from "randomstring";
 import './register.css';
 import { useForm } from "react-hook-form";
-import SelectBox from './SelectBox';
+import SelectBoxes from './SelectBoxes';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import ProcessSpinner from '../../../Component/Spinners/ProcessSpinner';
+import ProcessSpinner from '../../Component/Spinners/ProcessSpinner';
 import moment from "moment";
 
 
@@ -115,7 +115,7 @@ const ModalRegister = ({ setRegister }) => {
                 }</p>
               </div>
             </section>
-            <SelectBox register={register} errors={errors} />
+            <SelectBoxes register={register} errors={errors} />
 
             {
               residence === 'Locality' ? <div className="col-md-12 mb-4">
