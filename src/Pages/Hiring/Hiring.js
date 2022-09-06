@@ -118,8 +118,16 @@ const ModalRegister = ({ setRegister }) => {
             <section className='row'>
             <div className="col-md-6 mb-4">
                 <label className="form-label">BPUT Reg No</label>
-                <input type="text" className="form-control" {...register("rollno", { required: true, pattern: /^\d{10}$/ })} />
+                <input type="text" className="form-control" {...register("regno", { required: true, pattern: /^\d{10}$/ })} />
                 <p>{errors.regno ? errors.regno?.type === 'pattern' ? <span className="text-danger">must be of 10 digits</span>
+                  : <span className="text-danger">This field is required</span>
+                  : null
+                }</p>
+              </div>
+              <div className="col-md-6 mb-4">
+                <label className="form-label">SGPA- 1st Sem</label>
+                <input type="text" className="form-control" {...register("sgpa", { required: true })} />
+                <p>{errors.sgpa ? errors.sgpa?.type === 'pattern' ? <span className="text-danger">must be of 2 digits</span>
                   : <span className="text-danger">This field is required</span>
                   : null
                 }</p>
