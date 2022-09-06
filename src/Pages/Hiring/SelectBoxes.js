@@ -2,7 +2,10 @@ import React from 'react'
 
 const SelectBox = ({ errors, register }) => {
 
-
+  var gender= [
+    {name:'Male', value:'Male'},
+    {name:'Female', value:'Female'}
+  ]
   var branch_wise = [
     { name: 'B.Tech - CSE', value: 'b.tech - CSE' },
     { name: 'B.Tech - I.T.', value: 'b.tech - I.T.' },
@@ -48,6 +51,20 @@ const SelectBox = ({ errors, register }) => {
         }
       </select>
       {errors.branch && <span className="text-danger">This field is required</span>}
+    </div>
+    <div className={`select--box-2 col-md-6 mb-4 ${(errors.gender || errors.branch || errors.batch) ? 'select--box-2--modify' : 'select--box-2'}`}>
+      <label className="form-label">Gender</label>
+      <i className="fas fa-sort-down"></i>
+      <select className="form-control" {...register("branch", { required: true })} >
+        <option value="">Select</option>
+        {
+          gender.map((item, i) => {
+            const { name, value } = item;
+            return <option key={i} value={value}>{name}</option>
+          })
+        }
+      </select>
+      {errors.gender && <span className="text-danger">This field is required</span>}
     </div>
     <div className="col-md-6 mb-4">
       <label className="form-label">Section (ex: A,B,C...)</label>

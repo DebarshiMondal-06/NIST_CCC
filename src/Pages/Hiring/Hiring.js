@@ -78,7 +78,7 @@ const ModalRegister = ({ setRegister }) => {
   return <>
     <article style={{ display: 'flex', justifyContent: 'center' }}>
       <main className="card shadow-lg modal--card">
-        <h1>Register Here  <span style={{ fontSize: 20 }}><b>(closed)</b></span></h1>
+        <h1>Register Here </h1>
         <b style={{ marginTop: -50 }} className="p-1 lead"><center>Please provide all details in order to process!</center></b>
         <article className="modal-body mt-2">
           <form className={`contact_card`} onSubmit={handleSubmit(sumbit_data)}>
@@ -110,6 +110,16 @@ const ModalRegister = ({ setRegister }) => {
                 <label className="form-label">Contact</label>
                 <input type="text" className="form-control" {...register("contact", { required: true, pattern: /^[0-9]{10}$/ })} />
                 <p>{errors.contact ? errors.contact?.type === 'pattern' ? <span className="text-danger">must be of 10 digits</span>
+                  : <span className="text-danger">This field is required</span>
+                  : null
+                }</p>
+              </div>
+            </section>
+            <section className='row'>
+            <div className="col-md-6 mb-4">
+                <label className="form-label">BPUT Reg No</label>
+                <input type="text" className="form-control" {...register("rollno", { required: true, pattern: /^\d{10}$/ })} />
+                <p>{errors.regno ? errors.regno?.type === 'pattern' ? <span className="text-danger">must be of 10 digits</span>
                   : <span className="text-danger">This field is required</span>
                   : null
                 }</p>
