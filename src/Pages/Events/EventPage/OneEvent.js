@@ -34,7 +34,7 @@ const OneEvent = () => {
     // };
     axios({
       method: 'POST',
-      url: 'https://cpa0xpul0a.execute-api.ap-south-1.amazonaws.com/dev/',
+      url: 'https://pghzmva884.execute-api.ap-south-1.amazonaws.com/dev',
       data: JSON.stringify(configure)
     }).then((el) => {
       if (el.data && el.data.status === 'SUCCEEDED') {
