@@ -56,8 +56,8 @@ const EventDetails = () => {
         }).reverse()
         : <div className="event--card shadow">
           <article className="no--data">
-            <i className="fas fa-frown-open fa-4x"></i>
-            <p>Oops! No Event Data</p>
+            <i className="fas fa-smile-wink fa-4x"></i>
+            <p>Oops! No Upcoming Event, Stay tuned!</p>
           </article>
         </div>
     }

@@ -35,14 +35,16 @@ const ModalRegister = ({ setRegister }) => {
         section: `${section}`, parent_contact: `${parent_contact}`, createdOn: `${moment().format()}`
       }
     };
-    var configure_inputs = {
-      stateMachineArn: 'arn:aws:states:ap-south-1:143151111018:stateMachine:NIST_CCC_MACHINE',
-      input: JSON.stringify(configure)
-    };
+    // var configure_inputs = {
+    //   stateMachineArn: 'arn:aws:states:ap-south-1:143151111018:stateMachine:NIST_CCC_StepFunction',
+    //   input: JSON.stringify(configure)
+    // };
+
+
     axios({
       method: 'POST',
-      url: 'https://6svbsfa95h.execute-api.ap-south-1.amazonaws.com/dev',
-      data: configure_inputs
+      url: 'https://cpa0xpul0a.execute-api.ap-south-1.amazonaws.com/dev/',
+      data: JSON.stringify(configure)
     }).then((el) => {
       setLoad(false);
       if (el.data && el.data.status === 'SUCCEEDED') {
@@ -76,7 +78,7 @@ const ModalRegister = ({ setRegister }) => {
   return <>
     <article style={{ display: 'flex', justifyContent: 'center' }}>
       <main className="card shadow-lg modal--card">
-        <h1>Register Here <span style={{ fontSize: 18 }}></span></h1>
+        <h1>Register Here  <span style={{ fontSize: 20 }}><b>(closed)</b></span></h1>
         <b style={{ marginTop: -50 }} className="p-1 lead"><center>Please provide all details in order to process!</center></b>
         <article className="modal-body mt-2">
           <form className={`contact_card`} onSubmit={handleSubmit(sumbit_data)}>
@@ -124,17 +126,17 @@ const ModalRegister = ({ setRegister }) => {
             }
 
             <article style={{ float: 'right', display: 'flex', gap: "1em" }}>
-              <button className="btn btn-success" style={{ width: '150px' }}>
+              {/* <button className="btn btn-success" style={{ width: '150px' }}>
                 {
                   load ? <ProcessSpinner /> : 'Submit'
                 }
-              </button>
+              </button>  */}
               <button type="button" onClick={() => window.location.reload()} className="btn btn-danger">Close</button>
             </article>
           </form>
         </article>
         <br />
-        {/* <p className="badge p-3 bg-warning" style={{ fontSize: 20 }}>😕 Registartion has Closed</p> */}
+        <p className="badge p-3 bg-warning" style={{ fontSize: 20 }}>🥲 Registartion has Closed 👋 </p>
       </main>
     </article>
   </>

@@ -20,7 +20,7 @@ export const eventDetails = [
     time: '',
     venue: 'Will Update',
     Days: 2,
-    event_type: 'Upcoming',
+    event_type: 'Previous',
     check_type: true,
     logo: "https://www.pngkit.com/png/full/26-267054_cloud-puzzle-3d-rendering.png",
     short_desc: "👉  Play, Solve & Win exciting prices"

@@ -351,7 +351,12 @@ export const admin_data = [
   },
   {
     email: 'vikas.it.2019@nist.edu',
-    name: 'Vikas Kumar',
+    name: 'Vikas',
+    year: 2019
+  },
+  {
+    email: 'pradiptabehera0423@gmail.com',
+    name: 'Pradipta Behera',
     year: 2019
   },
   {
