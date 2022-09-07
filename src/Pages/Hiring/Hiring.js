@@ -76,7 +76,7 @@ const residence = watch('residence');
               <div className="col-md-6 mb-4">
                 <label className="form-label">1st Sem SGPA</label>
                 <input type="text" className="form-control" {...register("sgpa", { required: true, pattern:/^[0-9]\.\d{2}$/})} />
-                <p>{errors.sgpa ? errors.sgpa?.type === 'pattern' ? <span className="text-danger">Invalid value</span>
+                <p>{errors.sgpa ? errors.sgpa?.type === 'pattern' ? <span className="text-danger">must be upto 2 decimal point</span>
                   : <span className="text-danger">This field is required</span>
                   : null
                 }</p>
