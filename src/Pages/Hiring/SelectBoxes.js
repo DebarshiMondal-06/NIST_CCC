@@ -68,3 +68,4 @@ const SelectBoxes = ({ errors, register }) => {
 }
 
 export default SelectBoxes;
+
