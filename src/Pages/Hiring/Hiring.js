@@ -1,86 +1,43 @@
-/* eslint-disable no-unused-vars */
-import React, { useContext, useState } from 'react';
-import { GlobalContext } from '../../Context';
-import randomstring from "randomstring";
-import './register.css';
+import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import SelectBoxes from './SelectBoxes';
+import './hiring.css';
 import axios from 'axios';
-import { toast } from 'react-toastify';
 import ProcessSpinner from '../../Component/Spinners/ProcessSpinner';
-import moment from "moment";
+import { toast } from 'react-toastify';
 
 
 
-const ModalRegister = ({ setRegister }) => {
-  const { setDis } = useContext(GlobalContext);
+const Hiring = () => {
   const { register, handleSubmit, formState: { errors }, watch } = useForm();
   const [load, setLoad] = useState(false);
 
-
-  const residence = watch('residence');
-
-
+const residence = watch('residence');
   const sumbit_data = (data) => {
     setLoad(true);
-    const { fullname, emailId, rollno, contact, branch, batch, residence, parent_contact, address, section } = data;
-    var ticket = `CCC_${randomstring.generate({
-      length: 6,
-      capitalization: 'uppercase'
-    })}`;
-    var configure = {
-      inputs: {
-        check: "register", email: `${emailId.toLowerCase().trim()}`, name: `${fullname}`, branch: `${branch}`, batch: `${batch}`,
-        rollno: `${rollno}`, ticket: `${ticket}`, contact: `${contact}`, residence: `${residence}`, address: `${address}`,
-        section: `${section}`, parent_contact: `${parent_contact}`, createdOn: `${moment().format()}`
-      }
-    };
-    // var configure_inputs = {
-    //   stateMachineArn: 'arn:aws:states:ap-south-1:143151111018:stateMachine:NIST_CCC_StepFunction',
-    //   input: JSON.stringify(configure)
-    // };
-
-
     axios({
       method: 'POST',
-      url: 'https://pghzmva884.execute-api.ap-south-1.amazonaws.com/dev',
-      data: JSON.stringify(configure)
-    }).then((el) => {
+      url: 'https://pghzmva884.execute-api.ap-south-1.amazonaws.com/dev/selection',
+      data
+    }).then(() => {
       setLoad(false);
-      if (el.data && el.data.status === 'SUCCEEDED') {
-        var parseData = JSON.parse(el.data.output);
-        if (parseData.SdkResponseMetadata) {
-          window.scrollTo(0, 0);
-          localStorage.setItem('user_data', JSON.stringify({ ticket, ...data }));
-          toast.success('Thanks for Registering');
-          setDis(true);
-          setRegister(false);
-          setTimeout(() => {
-            setDis(false);
-          }, 2000);
-        } else {
-          window.scrollTo(0, 0);
-          localStorage.setItem('user_data', JSON.stringify(parseData));
-          toast.info('Already Registered!');
-          setTimeout(() => {
-            window.location.reload();
-          }, 2000);
-        }
-      } else {
-        toast.error('Something Went Wrong!')
-      }
-    })
+      toast.success('Successfully Updated!');
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+    }).catch(() => {
+      toast.error('Something Went Wrong, Try Again!');
+    });
   };
 
 
 
-
-  return <>
+  return <section className="container hiring--process">
+    <h1 className="text-center">Selection Process</h1>
     <article style={{ display: 'flex', justifyContent: 'center' }}>
-      <main className="card shadow-lg modal--card">
-        <h1>Register Here </h1>
-        <b style={{ marginTop: -50 }} className="p-1 lead"><center>Please provide all details in order to process!</center></b>
+      <main className="card shadow-lg modal--card" style={{ borderRadius: 20 }}>
         <article className="modal-body mt-2">
+          <p style={{ fontSize: 18, marginBottom: 40 }}>Please fillup all the details in order to process...</p>
           <form className={`contact_card`} onSubmit={handleSubmit(sumbit_data)}>
             <section className="row">
               <div className="col-md-6 mb-4">
@@ -107,6 +64,34 @@ const ModalRegister = ({ setRegister }) => {
                 }</p>
               </div>
               <div className="col-md-6 mb-4">
+                <label className="form-label">BPUT Regd No</label>
+                <input type="text" className="form-control" {...register("regno", { required: true, pattern: /^[0-9]{10}$/ })} />
+                <p>{errors.regno ? errors.regno?.type === 'pattern' ? <span className="text-danger">must be of 10 digits</span>
+                  : <span className="text-danger">This field is required</span>
+                  : null
+                }</p>
+              </div>
+            </section>
+            <section className="row">
+              <div className="col-md-6 mb-4">
+                <label className="form-label">1st Sem SGPA</label>
+                <input type="text" className="form-control" {...register("sgpa", { required: true, pattern:/^[0-9]\.\d{2}$/})} />
+                <p>{errors.sgpa ? errors.sgpa?.type === 'pattern' ? <span className="text-danger">Invalid value</span>
+                  : <span className="text-danger">This field is required</span>
+                  : null
+                }</p>
+              </div>
+              <div className="col-md-6 mb-4">
+                <label className="form-label">No of Backlogs</label>
+                <input type="text" className="form-control" {...register("backlog", { required: true, pattern: /^[0-9]{1}$/ })} />
+                <p>{errors.backlog ? errors.backlog?.type === 'pattern' ? <span className="text-danger">must be of 1 digits</span>
+                  : <span className="text-danger">This field is required</span>
+                  : null
+                }</p>
+              </div>
+            </section>
+            <section className="row">
+              <div className="col-md-6 mb-4">
                 <label className="form-label">Contact</label>
                 <input type="text" className="form-control" {...register("contact", { required: true, pattern: /^[0-9]{10}$/ })} />
                 <p>{errors.contact ? errors.contact?.type === 'pattern' ? <span className="text-danger">must be of 10 digits</span>
@@ -114,27 +99,16 @@ const ModalRegister = ({ setRegister }) => {
                   : null
                 }</p>
               </div>
-            </section>
-            <section className='row'>
-            <div className="col-md-6 mb-4">
-                <label className="form-label">BPUT Reg No</label>
-                <input type="text" className="form-control" {...register("regno", { required: true, pattern: /^\d{10}$/ })} />
-                <p>{errors.regno ? errors.regno?.type === 'pattern' ? <span className="text-danger">must be of 10 digits</span>
-                  : <span className="text-danger">This field is required</span>
-                  : null
-                }</p>
-              </div>
               <div className="col-md-6 mb-4">
-                <label className="form-label">SGPA- 1st Sem</label>
-                <input type="text" className="form-control" {...register("sgpa", { required: true })} />
-                <p>{errors.sgpa ? errors.sgpa?.type === 'pattern' ? <span className="text-danger">must be of 2 digits</span>
+                <label className="form-label">Whatsapp No</label>
+                <input type="text" className="form-control" {...register("whatsapp", { required: true, pattern: /^[0-9]{10}$/ })} />
+                <p>{errors.whatsapp ? errors.whatsapp?.type === 'pattern' ? <span className="text-danger">must be of 10 digits</span>
                   : <span className="text-danger">This field is required</span>
                   : null
                 }</p>
               </div>
             </section>
             <SelectBoxes register={register} errors={errors} />
-
             {
               residence === 'Locality' ? <div className="col-md-12 mb-4">
                 <label className="form-label">Your's Full Address</label>
@@ -142,22 +116,20 @@ const ModalRegister = ({ setRegister }) => {
                 <p>{errors.address && <span className="text-danger">This field is required</span>}</p>
               </div> : null
             }
-
-            <article style={{ float: 'right', display: 'flex', gap: "1em" }}>
+            <article style={{ float: 'right', display: 'flex', gap: "1em" , marginTop:"2%"}}>
               <button className="btn btn-success" style={{ width: '150px' }}>
                 {
                   load ? <ProcessSpinner /> : 'Submit'
                 }
-              </button> 
+              </button>
               <button type="button" onClick={() => window.location.reload()} className="btn btn-danger">Close</button>
             </article>
           </form>
         </article>
         <br />
-        {/* <p className="badge p-3 bg-warning" style={{ fontSize: 20 }}>🥲 Registartion has Closed 👋 </p> */}
       </main>
     </article>
-  </>
+  </section>
 }
 
-export default ModalRegister;
+export default Hiring;
