@@ -17,7 +17,7 @@ const Hiring = () => {
     setLoad(true);
     axios({
       method: 'POST',
-      url: ' https://6svbsfa95h.execute-api.ap-south-1.amazonaws.com/dev/selection',
+      url: 'https://6svbsfa95h.execute-api.ap-south-1.amazonaws.com/dev/selection',
       data
     }).then(() => {
       setLoad(false);
