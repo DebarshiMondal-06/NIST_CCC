@@ -78,4 +78,5 @@ const SelectBox = ({ errors, register }) => {
   </section>
 }
 
-export default SelectBox
+export default SelectBoxes;
+

@@ -359,4 +359,9 @@ export const admin_data = [
     name: 'Pradipta Behera',
     year: 2019
   },
+  {
+    email: 'pradiptabehera0423@gmail.com',
+    name: 'Pradipta Behera',
+    year: 2019
+  },
 ]
